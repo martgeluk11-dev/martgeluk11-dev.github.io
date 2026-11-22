@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8faff">
+  <meta name="description" content="Build Windows executables from Python, JavaScript, TypeScript, C, C++, C#, Go and Rust projects online.">
+  <title>EXEcify — Build Windows apps from code</title>
+  <link rel="icon" href="./static/execify-logo.ico?v=2" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/style.css?v=9">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Py2EXE home">
+        <img class="brand-logo" src="./static/execify-logo.ico" alt="" aria-hidden="true">
+        <span>EXEcify</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#features">Features</a>
+      </nav>
+      <a class="header-cta" href="#builder">Start converting <span>↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          
+          <h1>Your code.<br><span>Windows ready.</span></h1>
+          <p class="hero-lead">Turn complete coding projects into Windows executables. Upload your source, dependencies and assets — EXEcify handles the Windows build.</p>
+          <div class="hero-actions">
+            <a class="primary-cta" href="#builder">Convert for free <span>↗</span></a>
+            <span class="hero-caption">BUILT ON A REAL WINDOWS MACHINE</span>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-item"><span class="trust-icon">↗</span><span><b>Browser based</b><small>No installation needed</small></span></div>
+            <div class="trust-item"><span class="trust-icon">⌘</span><span><b>Project support</b><small>Include your assets</small></span></div>
+            <div class="trust-item"><span class="trust-icon">▣</span><span><b>Windows output</b><small>Ready to download</small></span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Illustration showing a coding project becoming a Windows executable">
+          <div class="visual-glow"></div>
+          <div class="visual-orbit orbit-a"></div>
+          <div class="visual-orbit orbit-b"></div>
+          <div class="visual-top-label"><span>PROJECT CONVERSION</span><span>01 — 02</span></div>
+          <div class="visual-code-card">
+            <div class="code-card-head"><span class="code-file-icon">&lt;/&gt;</span><span>project source</span><span class="code-dots">•••</span></div>
+            <div class="code-lines"><i class="code-purple"></i><i class="code-long"></i><i class="code-short"></i><i class="code-blue"></i><i class="code-medium"></i><i class="code-long"></i></div>
+            <div class="code-card-foot"><span>SOURCE PROJECT</span><span>2.4 KB</span></div>
+          </div>
+          <div class="conversion-path"><span></span><b>↗</b><span></span></div>
+          <div class="visual-exe-card">
+            <div class="exe-window-bar"><i></i><i></i><i></i><span>MY APPLICATION</span></div>
+            <div class="exe-app-icon"><span class="app-window"><i></i><i></i><i></i><i></i></span></div>
+            <div class="exe-app-name">my_app.exe</div>
+            <div class="exe-app-meta">WINDOWS EXECUTABLE <span>✓</span></div>
+          </div>
+          <div class="visual-sticker sticker-one"><span>✓</span> NO SETUP</div>
+          <div class="visual-sticker sticker-two"><span>↗</span> .EXE OUTPUT</div>
+          <div class="visual-bottom"><span>FROM SOURCE</span><span class="visual-bottom-line"></span><span>TO WINDOWS</span></div>
+        </div>
+      </div>
+      <div class="hero-edge"><span>EXEcify · CODE TO WINDOWS</span><span>SCROLL TO EXPLORE ↓</span></div>
+    </section>
+
+    <section class="builder-section" id="builder">
+      <div class="section-wrap">
+        <div class="builder-intro">
+          <div class="section-kicker"><span>01</span> LET'S MAKE SOMETHING</div>
+          <h2>Bring your project.<br><span>We'll build the app.</span></h2>
+          <p>Build projects in multiple programming languages, with their dependencies and assets.</p>
+        </div>
+
+        <div class="builder">
+          <div class="builder-main">
+            <div class="builder-step">
+              <div class="step-number">01</div>
+              <div class="step-copy"><h3>Upload your project</h3><p>Choose source files, a project folder or a ZIP archive.</p></div>
+            </div>
+
+            <div class="drop" id="drop">
+              <input id="files" type="file" multiple aria-label="Choose project files">
+              <input id="zip-file" type="file" accept=".zip,application/zip" hidden aria-label="Choose ZIP project archive">
+              <div class="upload-illustration"><span class="upload-cloud">↑</span><span class="upload-file">.SRC</span></div>
+              <b>Drop files or a ZIP archive here</b>
+              <p><button type="button" class="folder-button" id="folder-button">Choose project folder <span>↗</span></button></p>
+              <p><button type="button" class="folder-button" id="zip-button">Choose ZIP archive <span>↗</span></button></p>
+              <input id="folder" type="file" webkitdirectory multiple hidden>
+              <small>SOURCE CODE · ZIP ARCHIVES · DEPENDENCIES · ASSETS</small>
+            </div>
+
+            <div class="file-summary" id="file-summary" hidden>
+              <div class="summary-top"><b id="file-count">0 files</b><button id="clear" type="button">Remove all <span>×</span></button></div>
+              <div class="file-list" id="file-list"></div>
+            </div>
+
+            <div class="field">
+              <label for="language"><span class="field-index">02</span> PROJECT LANGUAGE</label>
+              <select id="language">
+                <option value="auto">Auto-detect language</option>
+                <option value="python">Python</option>
+                <option value="node">JavaScript / Node.js</option>
+                <option value="typescript">TypeScript</option>
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+                <option value="csharp">C# / .NET</option>
+                <option value="go">Go</option>
+                <option value="rust">Rust</option>
+                <option value="java">Java</option>
+              </select>
+              <small>EXEcify detects the project type from its files. You can change it manually.</small>
+            </div>
+            <div class="field entry-field">
+              <label for="entry"><span class="field-index">03</span> PROJECT ENTRY / MANIFEST</label>
+              <select id="entry" disabled><option value="">Add project files first</option></select>
+              <small id="entry-help">Choose the main source file or project manifest.</small>
+            </div>
+          </div>
+
+          <aside class="settings-column">
+            <div class="settings-heading">
+              <div class="builder-step">
+                <div class="step-number">04</div>
+                <div class="step-copy"><h3>Build settings</h3></div>
+              </div>
+              <span class="settings-tag">CONFIGURE</span>
+            </div>
+
+            <div class="field">
+              <label for="appname">APPLICATION NAME</label>
+              <input id="appname" value="my_app" maxlength="48" placeholder="my_app">
+            </div>
+            <div class="field">
+              <label>OUTPUT FORMAT</label>
+              <div class="segments" id="formats">
+                <button type="button" class="selected" data-value="onefile"><span class="format-icon">↧</span><b>Single file</b><small>One .exe</small></button>
+                <button type="button" data-value="folder"><span class="format-icon">▤</span><b>App folder</b><small>ZIP + files</small></button>
+              </div>
+            </div>
+            <div class="field">
+              <label>CONSOLE WINDOW</label>
+              <div class="toggle"><span>Show terminal window</span><label class="switch"><input id="console" type="checkbox" checked><i></i></label></div>
+            </div>
+            <div class="field">
+              <label for="icon">APPLICATION ICON <em>OPTIONAL</em></label>
+              <label class="icon-picker"><span class="ico-badge">ICO</span><b id="icon-name">Choose an icon</b><input id="icon" type="file" accept=".ico"><span class="icon-browse">BROWSE ↗</span></label>
+            </div>
+
+            <div class="security">
+              
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAFzcsHnZICFxC91i"></div>
+            </div>
+            <button class="build" id="build" type="button" disabled><span>Build my Windows app</span><b>↗</b></button>
+            <div class="status" id="status" role="status" aria-live="polite"></div>
+            <div class="progress" id="progress"><i></i></div>
+            
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section" id="how-it-works">
+      <div class="section-wrap">
+        <div class="how-heading">
+          <div><div class="section-kicker"><span>02</span> NO COMPLICATED WORKFLOW</div><h2>Three steps.<br><span>One Windows app.</span></h2></div>
+          
+        </div>
+        <div class="steps-grid">
+          <article class="info-step"><div class="info-step-top"><span>01</span><span class="info-step-symbol">↑</span></div><h3>Upload</h3><p>Add your project files, dependency manifests and any assets your app needs.</p><div class="step-decoration upload-deco"><i></i><i></i><i></i></div></article>
+          <article class="info-step"><div class="info-step-top"><span>02</span><span class="info-step-symbol">⚙</span></div><h3>Configure</h3><p>Pick an output format, set your app name and choose your preferences.</p><div class="step-decoration config-deco"><i></i><i></i><i></i></div></article>
+          <article class="info-step"><div class="info-step-top"><span>03</span><span class="info-step-symbol">↗</span></div><h3>Download</h3><p>Your project is packaged on Windows. When it's ready, download the result.</p><div class="step-decoration download-deco"><i></i></div></article>
+        </div>
+        <div class="build-explainer">
+          <div class="build-explainer-label"><span></span> BEHIND THE SCENES</div>
+          <p>Your project is sent to a temporary Windows build machine. EXEcify selects the matching toolchain — such as PyInstaller, Node.js, CMake, .NET, Go, Rust or Java — and builds your application with its project dependencies and assets. The resulting Windows executable is sent back for download. Temporary project files are automatically deleted after 24 hours.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section" id="features">
+      <div class="section-wrap features-inner">
+        <div class="features-copy">
+          <div class="section-kicker"><span>03</span> MADE FOR YOUR WORKFLOW</div>
+          <h2>More than<br><span>just source code.</span></h2>
+          <p>Real projects are made of more than code. Bring the files your app depends on and package them together.</p>
+        </div>
+        <div class="feature-list">
+          <div class="feature-row"><span class="feature-number">01</span><div><h3>Keep your project together</h3><p>Upload folders with the images, sounds, fonts and other files your app uses.</p></div><span class="feature-arrow">↗</span></div>
+          <div class="feature-row"><span class="feature-number">02</span><div><h3>Choose your output</h3><p>Create one executable or a packaged application folder.</p></div><span class="feature-arrow">↗</span></div>
+          <div class="feature-row"><span class="feature-number">03</span><div><h3>Build for Windows</h3><p>The conversion runs on a Windows build machine, not in your browser.</p></div><span class="feature-arrow">↗</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-banner">
+      <div class="closing-banner-inner"><div><span class="closing-kicker">READY WHEN YOU ARE</span><h2>Your next app starts<br>with your code.</h2></div><a href="#builder" class="closing-cta">Start building <span>↗</span></a><div class="closing-watermark">Py<span>.</span></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner"><a class="brand footer-brand" href="/"><img class="brand-logo" src="./static/execify-logo.ico" alt="" aria-hidden="true"><span>EXEcify</span></a><span>MAKE YOUR PROJECT WINDOWS READY.</span><span>© 2026 EXECIFY</span></div>
+  </footer>
+  <script src="./static/app.js?v=7"></script>
+</body>
+</html>
