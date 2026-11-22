@@ -11,6 +11,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./static/style.css?v=9">
+  <style>
+    .mobile-320-ad { display:none; }
+    @media (max-width:600px) {
+      .desktop-native-ad { display:none !important; }
+      .mobile-320-ad { display:flex !important; }
+    }
+  </style>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
@@ -172,11 +179,27 @@
 
 
 
-    <section aria-label="Advertisement" style="display:flex;justify-content:center;align-items:center;padding:28px 16px;min-height:120px;overflow:hidden">
+    <section class="desktop-native-ad" aria-label="Advertisement" style="display:flex;justify-content:center;align-items:center;padding:28px 16px;min-height:120px;overflow:hidden">
       <div style="width:100%;max-width:728px;text-align:center">
         <small style="display:block;color:#8b93a1;font:10px 'DM Mono',monospace;letter-spacing:.12em;margin-bottom:10px">ADVERTISEMENT</small>
         <script async="async" data-cfasync="false" src="https://bauval.org/21/9074a0d28f1af45d1d6735bbf7a3620b"></script>
         <div id="container-9074a0d28f1af45d1d6735bbf7a3620b"></div>
+      </div>
+    </section>
+
+    <section class="mobile-320-ad" aria-label="Mobile advertisement" style="justify-content:center;align-items:center;padding:18px 8px;min-height:82px;overflow:hidden">
+      <div style="width:320px;max-width:100%;text-align:center">
+        <small style="display:block;color:#8b93a1;font:10px 'DM Mono',monospace;letter-spacing:.12em;margin-bottom:8px">ADVERTISEMENT</small>
+        <script>
+          atOptions = {
+            'key' : 'e19510089d17cf9d978406ed33d668c1',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+          };
+        </script>
+        <script src="https://bauval.org/22/e19510089d17cf9d978406ed33d668c1"></script>
       </div>
     </section>
 
