@@ -461,3 +461,9 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
 .faq-answer p{margin:0;color:#718098;font-size:13px;line-height:1.85}
 @media(prefers-color-scheme:dark){.faq-item{border-color:#303b53}.faq-item summary{color:#e4ebfa}.faq-answer p{color:#a5b1c8}}
 @media(max-width:700px){.faq-grid{grid-template-columns:1fr}.faq-item summary{padding:20px 32px 20px 0;font-size:15px}.faq-item summary:after{top:18px}.faq-answer{padding:0 4px 20px 0}.faq-answer p{font-size:12px}}
+
+
+/* Monochrome heading text and shorter-copy layout */
+.hero h1 span,.builder-intro h2 span,.how-heading h2 span,.features-copy h2 span,.faq-section h2 span{color:inherit!important}
+.hero h1,.builder-intro h2,.how-heading h2,.features-copy h2,.faq-section h2{color:var(--ink,#17233d)}
+@media(prefers-color-scheme:dark){.hero h1,.builder-intro h2,.how-heading h2,.features-copy h2,.faq-section h2{color:#edf2ff}}
