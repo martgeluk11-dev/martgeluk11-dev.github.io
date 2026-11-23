@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./static/style.css?v=10">
+  <link rel="stylesheet" href="./static/style.css?v=11">
   <style>
     .mobile-320-ad { display:none; }
     @media (max-width:600px) {
@@ -92,11 +92,16 @@
           <p>Build projects in multiple programming languages, with their dependencies and assets.</p>
         </div>
 
-        <div class="builder">
-          <div class="builder-main">
+        <div class="builder wizard-builder">
+          <div class="wizard-progress" aria-label="Build setup progress">
+            <div class="wizard-progress-track"><span id="wizard-progress-fill"></span></div>
+            <div class="wizard-progress-label"><span id="wizard-step-label">STEP 1 OF 2</span><span id="wizard-step-name">PROJECT FILES</span></div>
+          </div>
+
+          <section class="builder-main wizard-panel" id="step-one" aria-labelledby="step-one-title">
             <div class="builder-step">
               <div class="step-number">01</div>
-              <div class="step-copy"><h3>Upload your project</h3><p>Choose source files, a project folder or a ZIP archive.</p></div>
+              <div class="step-copy"><h3 id="step-one-title">Add your project</h3><p>Upload your source files, choose the main file and select the programming language.</p></div>
             </div>
 
             <div class="drop" id="drop">
@@ -107,7 +112,7 @@
               <p><button type="button" class="folder-button" id="folder-button">Choose project folder <span>↗</span></button></p>
               <p><button type="button" class="folder-button" id="zip-button">Choose ZIP archive <span>↗</span></button></p>
               <input id="folder" type="file" webkitdirectory multiple hidden>
-              <small>SOURCE CODE · ZIP ARCHIVES · DEPENDENCIES · ASSETS</small>
+              <small>SOURCE CODE · DEPENDENCIES · ASSETS</small>
             </div>
 
             <div class="file-summary" id="file-summary" hidden>
@@ -115,36 +120,39 @@
               <div class="file-list" id="file-list"></div>
             </div>
 
-            <div class="field">
-              <label for="language"><span class="field-index">02</span> PROJECT LANGUAGE</label>
-              <select id="language">
-                <option value="auto">Auto-detect language</option>
-                <option value="python">Python</option>
-                <option value="node">JavaScript / Node.js</option>
-                <option value="typescript">TypeScript</option>
-                <option value="c">C</option>
-                <option value="cpp">C++</option>
-                <option value="csharp">C# / .NET</option>
-                <option value="go">Go</option>
-                <option value="rust">Rust</option>
-                <option value="java">Java</option>
-              </select>
-              <small>EXEcify detects the project type from its files. You can change it manually.</small>
-            </div>
-            <div class="field entry-field">
-              <label for="entry"><span class="field-index">03</span> PROJECT ENTRY / MANIFEST</label>
-              <select id="entry" disabled><option value="">Add project files first</option></select>
-              <small id="entry-help">Choose the main source file or project manifest.</small>
-            </div>
-          </div>
-
-          <aside class="settings-column">
-            <div class="settings-heading">
-              <div class="builder-step">
-                <div class="step-number">04</div>
-                <div class="step-copy"><h3>Build settings</h3></div>
+            <div class="wizard-fields">
+              <div class="field">
+                <label for="language"><span class="field-index">01</span> PROJECT LANGUAGE</label>
+                <select id="language">
+                  <option value="auto">Auto-detect language</option>
+                  <option value="python">Python</option>
+                  <option value="node">JavaScript / Node.js</option>
+                  <option value="typescript">TypeScript</option>
+                  <option value="c">C</option>
+                  <option value="cpp">C++</option>
+                  <option value="csharp">C# / .NET</option>
+                  <option value="go">Go</option>
+                  <option value="rust">Rust</option>
+                  <option value="java">Java</option>
+                </select>
+                <small>Detected from your files. You can change this manually.</small>
               </div>
-              <span class="settings-tag">CONFIGURE</span>
+              <div class="field entry-field">
+                <label for="entry"><span class="field-index">02</span> MAIN FILE / PROJECT MANIFEST</label>
+                <select id="entry" disabled><option value="">Add project files first</option></select>
+                <small id="entry-help">Choose the main source file or project manifest.</small>
+              </div>
+            </div>
+
+            <div class="wizard-actions wizard-actions-end">
+              <button class="wizard-next" id="next-step" type="button" disabled>Continue to settings <span>↗</span></button>
+            </div>
+          </section>
+
+          <section class="settings-column wizard-panel" id="step-two" aria-labelledby="step-two-title" hidden>
+            <div class="builder-step">
+              <div class="step-number">02</div>
+              <div class="step-copy"><h3 id="step-two-title">Configure your app</h3><p>Choose the name, output format and optional application icon.</p></div>
             </div>
 
             <div class="field">
@@ -159,19 +167,16 @@
               </div>
             </div>
             <div class="field">
-              <label>CONSOLE WINDOW</label>
-              <div class="toggle"><span>Show terminal window</span><label class="switch"><input id="console" type="checkbox" checked><i></i></label></div>
-            </div>
-            <div class="field">
               <label for="icon">APPLICATION ICON <em>OPTIONAL</em></label>
               <label class="icon-picker"><span class="ico-badge">ICO</span><b id="icon-name">Choose an icon</b><input id="icon" type="file" accept=".ico"><span class="icon-browse">BROWSE ↗</span></label>
+              <small>Use a .ico file to customize your Windows app icon. Available for supported Python builds.</small>
             </div>
 
-            <div class="security">
-              
-              <div class="cf-turnstile" data-sitekey="0x4AAAAAAFzcsHnZICFxC91i"></div>
+            <div class="security"><div class="cf-turnstile" data-sitekey="0x4AAAAAAFzcsHnZICFxC91i"></div></div>
+            <div class="wizard-actions wizard-actions-between">
+              <button class="wizard-back" id="back-step" type="button">← Back</button>
+              <button class="build" id="build" type="button" disabled><span>Build my Windows app</span><b>↗</b></button>
             </div>
-            <button class="build" id="build" type="button" disabled><span>Build my Windows app</span><b>↗</b></button>
             <div class="status" id="status" role="status" aria-live="polite"></div>
             <section class="build-verification" id="build-verification" hidden aria-live="polite">
               <div class="verification-heading"><span>BUILD VERIFICATION</span><span id="verification-filename"></span></div>
@@ -194,8 +199,7 @@
               <p>EXEcify does not automatically upload your file to VirusTotal. The checksum is provided so you can look up the exact build.</p>
             </section>
             <div class="progress" id="progress"><i></i></div>
-            
-          </aside>
+          </section>
         </div>
       </div>
     </section>
@@ -282,7 +286,7 @@
   <footer class="site-footer">
     <div class="footer-inner"><a class="brand footer-brand" href="/"><img class="brand-logo" src="./static/execify-logo.svg" alt="" aria-hidden="true"><span>EXEcify</span></a><span>MAKE YOUR PROJECT WINDOWS READY.</span><a href="./about.html">About</a><a href="./security.html">Security</a><a href="./changelog.html">Changelog</a><a href="./downloads.html">Downloads</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><span>© 2026 EXECIFY</span></div>
   </footer>
-  <script src="./static/app.js?v=9"></script>
+  <script src="./static/app.js?v=10"></script>
   <script data-cfasync="false" src="https://bauval.org/14/32b20b9e6ec0e0db647e18b7d28aa039"></script>
 </body>
 </html>
