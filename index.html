@@ -178,7 +178,17 @@
                 <button type="button" id="copy-hash">Copy hash</button>
                 <a id="virustotal-link" href="#" target="_blank" rel="noopener noreferrer">Search on VirusTotal ↗</a>
               </div>
-              <p>VirusTotal searches this checksum only. EXEcify does not upload your file to VirusTotal. If no report exists, VirusTotal may show no results. A clean result is not a guarantee that a file is safe.</p>
+              <details class="verification-help">
+                <summary>How do I use this?</summary>
+                <ol>
+                  <li>Click <b>Copy hash</b> to copy the SHA-256 checksum.</li>
+                  <li>Click <b>Search on VirusTotal</b>. EXEcify opens a search for that exact checksum.</li>
+                  <li>If VirusTotal has seen the file before, you can review its scan results. If there are no results, that simply means it has not been analysed yet.</li>
+                </ol>
+                <p>You can also upload your EXE to VirusTotal if it has no existing report. Be aware: uploaded files are shared with VirusTotal and its security partners. Only upload files you are comfortable sharing.</p>
+                <p>A matching SHA-256 identifies the exact same file. A clean VirusTotal result does not guarantee that an application is safe.</p>
+              </details>
+              <p>EXEcify does not automatically upload your file to VirusTotal. The checksum is provided so you can look up the exact build.</p>
             </section>
             <div class="progress" id="progress"><i></i></div>
             
