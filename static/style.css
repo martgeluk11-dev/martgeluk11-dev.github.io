@@ -362,6 +362,62 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
 }
 
 
-/* Upload confidentiality notice */
-.upload-warning{margin:0 0 18px;padding:14px 16px;border:1px solid #d9a441;background:rgba(217,164,65,.09);color:var(--text,#273244);font-size:13px;line-height:1.6;border-radius:8px}
-.upload-warning strong{display:block;margin-bottom:3px;font-weight:800}
+
+
+/* Clear, high-contrast upload confidentiality notice */
+.upload-warning{
+  display:flex;align-items:flex-start;gap:15px;
+  margin:0 0 24px;padding:21px 23px;
+  border:1px solid #d69a28;border-left:5px solid #bd7b0d;
+  border-radius:12px;background:#fff3d8;color:#49300b;
+  font-size:14px;line-height:1.75;box-shadow:0 7px 22px #8a5b1412;
+}
+.upload-warning:before{
+  content:"!";flex:0 0 36px;width:36px;height:36px;
+  display:grid;place-items:center;border-radius:50%;
+  background:#f2d18b;color:#49300b;font:800 21px var(--display);
+}
+.upload-warning strong{display:block;margin:0 0 5px;color:#382304;font-size:16px;font-weight:800;letter-spacing:-.01em}
+@media(max-width:600px){
+ .upload-warning{padding:17px 16px;gap:11px;font-size:13px;line-height:1.65}
+ .upload-warning:before{flex-basis:30px;width:30px;height:30px;font-size:18px}
+ .upload-warning strong{font-size:14px}
+}
+@media(prefers-color-scheme:dark){
+ .upload-warning{
+  background:#fff3d8!important;color:#49300b!important;
+  border-color:#d69a28!important;border-left-color:#bd7b0d!important;
+  box-shadow:0 8px 24px #0004;
+ }
+ .upload-warning strong{color:#382304!important}
+ .upload-warning:before{background:#f2d18b!important;color:#49300b!important}
+}
+
+/* Larger, more polished step headers and process cards */
+.wizard-builder .builder-step{gap:17px;margin-bottom:27px}
+.wizard-builder .step-number{
+ width:44px;height:44px;border-radius:12px;font-size:13px;
+ box-shadow:inset 0 0 0 1px #4267ee18;
+}
+.wizard-builder .step-copy h3{font-size:21px;letter-spacing:-.7px}
+.wizard-builder .step-copy p{font-size:13px;line-height:1.7;max-width:560px}
+.steps-grid{gap:18px}
+.info-step{
+ min-height:265px;padding:29px 28px 26px;border-radius:15px;
+ transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.info-step:hover{transform:translateY(-4px);border-color:#cbd6ee;box-shadow:0 16px 34px #263b6812}
+.info-step-top{font-size:10px}
+.info-step-symbol{width:44px;height:44px;border-radius:12px;font-size:20px}
+.info-step h3{margin:30px 0 10px;font-size:23px;letter-spacing:-.8px}
+.info-step p{max-width:300px;font-size:13px;line-height:1.8}
+@media(prefers-color-scheme:dark){
+ .info-step:hover{border-color:#6176a7;box-shadow:0 16px 34px #0003}
+}
+@media(max-width:700px){
+ .info-step{min-height:210px;padding:24px}
+ .info-step h3{margin-top:22px;font-size:21px}
+ .info-step p{font-size:13px}
+ .wizard-builder .step-number{width:40px;height:40px}
+ .wizard-builder .step-copy h3{font-size:19px}
+}
