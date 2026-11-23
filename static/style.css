@@ -360,3 +360,8 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
  .wizard-back{border-color:#39465e;color:#e5ecfa}
  .wizard-back:hover{background:#263454}
 }
+
+
+/* Upload confidentiality notice */
+.upload-warning{margin:0 0 18px;padding:14px 16px;border:1px solid #d9a441;background:rgba(217,164,65,.09);color:var(--text,#273244);font-size:13px;line-height:1.6;border-radius:8px}
+.upload-warning strong{display:block;margin-bottom:3px;font-weight:800}
