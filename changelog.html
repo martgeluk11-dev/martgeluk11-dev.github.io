@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8faff">
+  <meta name="description" content="A public record of notable EXEcify website, build-service and security transparency updates.">
+  <title>Changelog — EXEcify</title>
+  <link rel="icon" href="./static/execify-logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/style.css?v=10">
+  <style>
+    .info-wrap{width:min(900px,calc(100% - 40px));margin:76px auto 100px}
+    .info-kicker{font:500 11px 'DM Mono',monospace;letter-spacing:.13em;color:#64748b;text-transform:uppercase}
+    .info-wrap h1{font-size:clamp(38px,6vw,64px);letter-spacing:-.055em;line-height:1.02;margin:18px 0}
+    .info-lead{font-size:18px;line-height:1.7;max-width:740px;color:var(--muted,#64748b)}
+    .info-section{border-top:1px solid var(--border,#dbe2ee);padding:26px 0}
+    .info-section h2{font-size:22px;margin:0 0 12px;letter-spacing:-.03em}
+    .info-section p,.info-section li{line-height:1.75;color:var(--muted,#64748b)}
+    .info-section ul{padding-left:22px}
+    .info-note{padding:18px;border:1px solid var(--border,#dbe2ee);border-radius:10px;margin:24px 0;line-height:1.7;color:var(--muted,#64748b)}
+    .info-wrap a{color:var(--accent,#2463eb);text-decoration:underline;text-underline-offset:3px}
+    .info-date{font:11px 'DM Mono',monospace;color:#64748b;margin-top:28px}
+    .info-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .info-links a{display:inline-block;padding:11px 14px;border:1px solid var(--border,#dbe2ee);border-radius:7px;text-decoration:none;font-size:12px;font-weight:700}
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="./"><img class="brand-logo" src="./static/execify-logo.svg" alt=""><span>EXEcify</span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="./">Home</a><a href="./about.html">About</a><a href="./security.html">Security</a><a href="./changelog.html">Changelog</a></nav>
+  </div></header>
+  <main class="info-wrap">
+    <div class="info-kicker">PROJECT HISTORY</div>
+    <h1>Changelog.</h1>
+    <p class="info-lead">A public record of notable EXEcify website, build-service and security transparency updates.</p>
+    
+<section class="info-section"><h2>23 November 2026</h2><ul><li>Added SHA-256 checksums for downloaded build files.</li><li>Added a VirusTotal hash-search link. Files are not automatically uploaded to VirusTotal.</li><li>Added guidance explaining checksum lookups and the privacy implications of uploading files to third-party scanning services.</li><li>Published a preliminary AI-assisted static security review of selected backend components.</li><li>Expanded public documentation for privacy, build processing and security limitations.</li></ul></section>
+<section class="info-section"><h2>Earlier project updates</h2><p>EXEcify has expanded from a Python-to-EXE converter to support additional project types, including JavaScript, TypeScript, C, C++, C#, Go and Rust. Support and build requirements can vary by language.</p></section>
+<p class="info-note">This changelog records notable published changes. It is not a complete commit history; the source repositories contain the detailed development history.</p>
+<div class="info-links"><a href="https://github.com/martgeluk11-dev/martgeluk11-dev.github.io/commits/main/">Website commits ↗</a><a href="https://github.com/martgeluk11-dev/PY2EXEONLINE/commits/main/">Backend commits ↗</a></div>
+<p class="info-date">Last updated: 23 November 2026</p>
+  </main>
+  <footer class="site-footer"><div class="footer-inner">
+    <a class="brand footer-brand" href="./"><img class="brand-logo" src="./static/execify-logo.svg" alt=""><span>EXEcify</span></a>
+    <a href="./about.html">About</a><a href="./security.html">Security</a><a href="./changelog.html">Changelog</a><a href="./downloads.html">Downloads</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a>
+    <span>© 2026 EXECIFY</span>
+  </div></footer>
+</body>
+</html>
