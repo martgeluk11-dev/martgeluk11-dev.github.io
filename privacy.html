@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8faff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101522" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="How EXEcify handles uploaded projects, build processing, storage and deletion.">
+  <title>Privacy & Security — EXEcify</title>
+  <link rel="icon" href="./static/execify-logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/style.css?v=10">
+  <style>
+    .policy-wrap{width:min(900px,calc(100% - 40px));margin:76px auto 100px}
+    .policy-kicker{font:500 11px 'DM Mono',monospace;letter-spacing:.13em;color:#64748b;text-transform:uppercase}
+    .policy-wrap h1{font-size:clamp(38px,6vw,64px);letter-spacing:-.055em;line-height:1.02;margin:18px 0}
+    .policy-lead{font-size:18px;line-height:1.7;max-width:720px;color:var(--muted,#64748b)}
+    .policy-section{border-top:1px solid var(--border,#dbe2ee);padding:26px 0}
+    .policy-section h2{font-size:22px;margin:0 0 12px;letter-spacing:-.03em}
+    .policy-section p,.policy-section li{line-height:1.75;color:var(--muted,#64748b)}
+    .policy-section ul{padding-left:22px}
+    .policy-note{padding:18px;border:1px solid var(--border,#dbe2ee);border-radius:10px;margin:24px 0}
+    .policy-wrap a{color:var(--accent,#2463eb);text-decoration:underline;text-underline-offset:3px}
+    .policy-updated{font:11px 'DM Mono',monospace;color:#64748b;margin-top:26px}
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="./"><img class="brand-logo" src="./static/execify-logo.svg" alt=""><span>EXEcify</span></a>
+    <nav class="main-nav"><a href="./">Back to EXEcify</a></nav>
+  </div></header>
+  <main class="policy-wrap">
+    <div class="policy-kicker">TRANSPARENCY / DATA HANDLING</div>
+    <h1>Privacy & security.</h1>
+    <p class="policy-lead">Your project files are processed to create a Windows build. This page explains which services handle those files, how they are protected and when temporary data is removed.</p>
+    <div class="policy-note"><strong>In short:</strong> uploaded file contents and generated build files are encrypted in temporary storage. Source uploads are deleted when a build finishes. Downloaded build files are deleted after the download response completes. Temporary KV data also has a 24-hour expiry as a fallback.</div>
+
+    <section class="policy-section">
+      <h2>1. Who processes your project?</h2>
+      <ul>
+        <li><strong>GitHub Pages</strong> serves the EXEcify website.</li>
+        <li><strong>Cloudflare Workers</strong> receives uploads, manages build jobs and serves downloads.</li>
+        <li><strong>Cloudflare Workers KV</strong> temporarily stores encrypted upload and result chunks.</li>
+        <li><strong>GitHub Actions</strong> runs the build on a temporary GitHub-hosted Windows runner.</li>
+      </ul>
+      <p>Builds use language toolchains and package managers such as pip, npm, Cargo, Go, .NET and CMake. These may download project dependencies while a build is running.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>2. Storage and encryption</h2>
+      <p>Uploaded file contents and generated output chunks are encrypted with AES-256-GCM before they are written to Workers KV. The encryption key is held as a Cloudflare Worker secret and is not included in the website or public source files. Transfers use HTTPS.</p>
+      <p>Job metadata needed to operate a build (such as status, file names and build settings) is stored separately and is not encrypted in the same way. Do not upload passwords, API keys, private certificates or other secrets inside a project.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>3. Deletion and retention</h2>
+      <ul>
+        <li>Uploaded source chunks are deleted from KV when the build completes or fails.</li>
+        <li>Generated output chunks are deleted after the download response has completed.</li>
+        <li>Job metadata is kept briefly so the download/status flow can finish; after a successful download its expiry is reduced to one hour.</li>
+        <li>KV entries have a 24-hour expiry as a fallback for abandoned jobs or interrupted cleanup.</li>
+        <li>The temporary Windows runner workspace is removed by the build script, and GitHub-hosted runners are temporary.</li>
+      </ul>
+      <p>Deletion from the active KV namespace does not mean that every infrastructure backup or provider-level record is instantly erased. Provider retention and operational records are governed by their own policies.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>4. Build isolation and limitations</h2>
+      <p>Each build runs in a GitHub-hosted Windows runner rather than on a permanent EXEcify server. The workflow has a 25-minute overall timeout, individual build steps have timeouts, and uploads, ZIP expansion and outputs have size limits.</p>
+      <p>EXEcify does not currently enforce a custom micro-VM per build or fully disable outbound network access. Dependency installation requires network access, so untrusted project code and build scripts may run while the runner is online. Do not upload projects you do not trust, and do not treat the service as a secure environment for confidential or highly sensitive code.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>5. Logs and source code</h2>
+      <p>Raw compiler stdout and stderr are not returned as build error messages. Persistent Worker invocation logs and traces are disabled. The EXEcify source code is publicly available for inspection in the <a href="https://github.com/martgeluk11-dev/PY2EXEONLINE">backend repository</a> and <a href="https://github.com/martgeluk11-dev/martgeluk11-dev.github.io">website repository</a>.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>6. Antivirus warnings and signatures</h2>
+      <p>Some packaging tools can produce executables that trigger antivirus false positives. EXEcify does not currently digitally sign generated executables. A successful build is not a malware scan or a guarantee that the output is safe; review your own source code and dependencies before running or distributing the result.</p>
+    </section>
+    <p class="policy-updated">Last updated: 23 November 2026</p>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><a class="brand footer-brand" href="./"><img class="brand-logo" src="./static/execify-logo.svg" alt=""><span>EXEcify</span></a><span>MAKE YOUR PROJECT WINDOWS READY.</span><span>© 2026 EXECIFY</span></div></footer>
+</body>
+</html>
