@@ -99,7 +99,8 @@ function renderFiles(){
     java:"Choose the main .java file. Maven or Gradle project files are supported."
   };
   $("entry-help").textContent=archive?"EXEcify will safely extract the archive and detect its project files and language.":help[language];
-  $("build").disabled=!candidates.length||projectFiles.length>150;
+  $("next-step").disabled=!projectFiles.length||select.disabled||!select.value||projectFiles.length>150;
+  $("build").disabled=!projectFiles.length||select.disabled||!select.value||projectFiles.length>150;
 }
 fileInput.addEventListener("change",e=>{addFiles(e.target.files);fileInput.value="";});
 folderInput.addEventListener("change",e=>{addFiles(e.target.files);folderInput.value="";});
@@ -119,6 +120,19 @@ $("formats").addEventListener("click",e=>{
 });
 $("icon").addEventListener("change",e=>{iconFile=e.target.files[0]||null;$("icon-name").textContent=iconFile?iconFile.name:"Choose an icon";});
 function setStatus(message,error=false){$("status").textContent=message;$("status").classList.toggle("error",error);}
+function showWizardStep(step){
+  const second=step===2;
+  $("step-one").hidden=second;
+  $("step-two").hidden=!second;
+  $("wizard-progress-fill").style.width=second?"100%":"50%";
+  $("wizard-step-label").textContent=second?"STEP 2 OF 2":"STEP 1 OF 2";
+  $("wizard-step-name").textContent=second?"APP SETTINGS":"PROJECT FILES";
+  if(second)$("appname").focus({preventScroll:true});
+}
+$("next-step").addEventListener("click",()=>{
+  if(!$("next-step").disabled)showWizardStep(2);
+});
+$("back-step").addEventListener("click",()=>showWizardStep(1));
 
 async function showBuildVerification(blob,filename){
   const panel=$("build-verification");
@@ -188,7 +202,7 @@ $("build").addEventListener("click",async()=>{
     const create=await fetch(API_BASE+"/api/jobs",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
       captcha,language,files:files.map(item=>({path:item.path,size:item.file.size})),
       entry_file:$("entry").value,app_name:$("appname").value||"my_app",build_type:format,
-      console:$("console").checked,icon_path:iconFile?"__app_icon__.ico":""
+      console:true,icon_path:iconFile?"__app_icon__.ico":""
     })});
     if(!create.ok){let msg=await create.text();try{msg=JSON.parse(msg).detail||msg;}catch{}throw new Error(msg);}
     const {job_id,upload_token}=await create.json();
