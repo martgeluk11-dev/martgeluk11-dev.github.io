@@ -421,3 +421,29 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
  .wizard-builder .step-number{width:40px;height:40px}
  .wizard-builder .step-copy h3{font-size:19px}
 }
+
+
+/* Homepage FAQ and SEO content */
+.faq-section{padding:100px 0 105px;background:#fff}
+.faq-section h2{margin:18px 0 35px;color:#202e4a;font-size:clamp(38px,5vw,58px);line-height:1.02;letter-spacing:-.065em}
+.faq-section h2 span{color:var(--blue)}
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 42px;border-top:1px solid #e3e8f1}
+.faq-item{padding:23px 0 25px;border-bottom:1px solid #e3e8f1}
+.faq-item h3{margin:0 0 10px;color:#263653;font-size:16px;letter-spacing:-.35px}
+.faq-item p{margin:0;color:#718098;font-size:13px;line-height:1.85}
+.faq-more{margin:26px 0 0;color:#718098;font-size:13px;line-height:1.8}
+.faq-more a{color:var(--blue);font-weight:700;text-underline-offset:3px}
+@media(prefers-color-scheme:dark){
+ .faq-section{background:#101522}
+ .faq-section h2,.faq-item h3{color:#e4ebfa}
+ .faq-grid,.faq-item{border-color:#303b53}
+ .faq-item p,.faq-more{color:#a5b1c8}
+ .faq-more a{color:#9eb2ff}
+}
+@media(max-width:700px){
+ .faq-section{padding:72px 0}
+ .faq-grid{grid-template-columns:1fr}
+ .faq-item{padding:20px 0}
+ .faq-item h3{font-size:15px}
+ .faq-item p,.faq-more{font-size:12px}
+}
