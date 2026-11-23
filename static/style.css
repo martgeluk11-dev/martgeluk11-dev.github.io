@@ -447,3 +447,17 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
  .faq-item h3{font-size:15px}
  .faq-item p,.faq-more{font-size:12px}
 }
+
+
+/* Expandable FAQ */
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 42px;border-top:1px solid #e3e8f1}
+.faq-item{display:block;min-width:0;padding:0;border:0;border-bottom:1px solid #e3e8f1}
+.faq-item summary{position:relative;display:block;padding:23px 34px 23px 0;color:#263653;font-size:16px;font-weight:800;letter-spacing:-.35px;line-height:1.5;cursor:pointer;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:"+";position:absolute;right:3px;top:21px;color:var(--blue);font:500 23px 'DM Mono',monospace;transition:transform .2s}
+.faq-item[open] summary:after{content:"−"}
+.faq-item summary:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:3px}
+.faq-answer{padding:0 20px 22px 0}
+.faq-answer p{margin:0;color:#718098;font-size:13px;line-height:1.85}
+@media(prefers-color-scheme:dark){.faq-item{border-color:#303b53}.faq-item summary{color:#e4ebfa}.faq-answer p{color:#a5b1c8}}
+@media(max-width:700px){.faq-grid{grid-template-columns:1fr}.faq-item summary{padding:20px 32px 20px 0;font-size:15px}.faq-item summary:after{top:18px}.faq-answer{padding:0 4px 20px 0}.faq-answer p{font-size:12px}}
