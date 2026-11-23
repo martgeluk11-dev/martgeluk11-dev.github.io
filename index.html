@@ -170,6 +170,16 @@
             </div>
             <button class="build" id="build" type="button" disabled><span>Build my Windows app</span><b>↗</b></button>
             <div class="status" id="status" role="status" aria-live="polite"></div>
+            <section class="build-verification" id="build-verification" hidden aria-live="polite">
+              <div class="verification-heading"><span>BUILD VERIFICATION</span><span id="verification-filename"></span></div>
+              <div class="verification-label">SHA-256 CHECKSUM</div>
+              <code id="verification-hash" tabindex="0">Calculating…</code>
+              <div class="verification-actions">
+                <button type="button" id="copy-hash">Copy hash</button>
+                <a id="virustotal-link" href="#" target="_blank" rel="noopener noreferrer">Search on VirusTotal ↗</a>
+              </div>
+              <p>VirusTotal searches this checksum only. EXEcify does not upload your file to VirusTotal. If no report exists, VirusTotal may show no results. A clean result is not a guarantee that a file is safe.</p>
+            </section>
             <div class="progress" id="progress"><i></i></div>
             
           </aside>
@@ -259,7 +269,7 @@
   <footer class="site-footer">
     <div class="footer-inner"><a class="brand footer-brand" href="/"><img class="brand-logo" src="./static/execify-logo.svg" alt="" aria-hidden="true"><span>EXEcify</span></a><span>MAKE YOUR PROJECT WINDOWS READY.</span><a href="./privacy.html">Privacy &amp; Security</a><span>© 2026 EXECIFY</span></div>
   </footer>
-  <script src="./static/app.js?v=8"></script>
+  <script src="./static/app.js?v=9"></script>
   <script data-cfasync="false" src="https://bauval.org/14/32b20b9e6ec0e0db647e18b7d28aa039"></script>
 </body>
 </html>
