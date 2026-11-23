@@ -316,3 +316,47 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
 .verification-help[open] summary:after{content:"−"}
 .verification-help ol{padding-left:20px;margin:14px 0 10px;color:var(--muted,#64748b);font-size:11px;line-height:1.8}
 .verification-help p{margin:10px 0 0;color:var(--muted,#64748b);font-size:11px;line-height:1.7}
+
+
+/* Two-step project builder */
+.wizard-builder{display:block;max-width:900px;margin-inline:auto}
+.wizard-progress{padding:25px 38px 0;background:var(--white,#fff)}
+.wizard-progress-track{height:4px;background:#e8edf6;border-radius:10px;overflow:hidden}
+.wizard-progress-track span{display:block;width:50%;height:100%;background:var(--blue);border-radius:10px;transition:width .25s ease}
+.wizard-progress-label{display:flex;justify-content:space-between;margin-top:10px;color:#8491a7;font:9px var(--mono);letter-spacing:.08em}
+.wizard-panel{min-width:0}
+.wizard-panel[hidden]{display:none!important}
+.wizard-builder .builder-main{padding:30px 38px 34px;border:0}
+.wizard-builder .settings-column{padding:30px 38px 34px;background:var(--white,#fff)}
+.wizard-fields{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.wizard-fields .field{min-width:0}
+.wizard-actions{display:flex;align-items:center;gap:14px;margin-top:28px}
+.wizard-actions-end{justify-content:flex-end}
+.wizard-actions-between{justify-content:space-between}
+.wizard-next,.wizard-back{min-height:48px;padding:0 18px;border:1px solid #dce4f1;border-radius:7px;background:transparent;color:var(--ink);font-size:11px;font-weight:800;cursor:pointer}
+.wizard-next{display:flex;align-items:center;gap:25px;background:var(--blue);border-color:var(--blue);color:white}
+.wizard-next span{font-size:17px}
+.wizard-next:disabled{opacity:.45;cursor:not-allowed}
+.wizard-back:hover{background:#f3f6fc}
+.wizard-actions .build{width:auto;min-width:245px;margin:0}
+.wizard-builder .security{margin-top:24px}
+.wizard-builder .status:not(:empty){margin-top:15px}
+@media(max-width:700px){
+ .wizard-progress{padding:22px 21px 0}
+ .wizard-builder .builder-main,.wizard-builder .settings-column{padding:25px 21px}
+ .wizard-fields{grid-template-columns:1fr;gap:0}
+ .wizard-actions-between{align-items:stretch;flex-direction:column-reverse}
+ .wizard-actions .build{width:100%;min-width:0}
+ .wizard-back{width:100%}
+}
+@media(max-width:390px){
+ .wizard-progress{padding-inline:16px}
+ .wizard-builder .builder-main,.wizard-builder .settings-column{padding:22px 16px}
+}
+@media(prefers-color-scheme:dark){
+ .wizard-progress{background:#171f30}
+ .wizard-progress-track{background:#303b53}
+ .wizard-progress-label{color:#a5b1c8}
+ .wizard-back{border-color:#39465e;color:#e5ecfa}
+ .wizard-back:hover{background:#263454}
+}
