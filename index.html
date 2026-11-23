@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./static/style.css?v=15">
+  <link rel="stylesheet" href="./static/style.css?v=16">
   <style>
     .mobile-320-ad { display:none; }
     @media (max-width:600px) {
@@ -45,15 +45,15 @@
         <div class="hero-copy">
           
           <h1>Your code.<br><span>Windows ready.</span></h1>
-          <p class="hero-lead">Turn complete coding projects into Windows executables. Upload your source, dependencies and assets — EXEcify handles the Windows build.</p>
+          <p class="hero-lead">Upload your project. EXEcify builds a Windows app you can download.</p>
           <div class="hero-actions">
             <a class="primary-cta" href="#builder">Convert for free <span>↗</span></a>
-            <span class="hero-caption">BUILT ON A REAL WINDOWS MACHINE</span>
+            <span class="hero-caption">BUILT ON WINDOWS</span>
           </div>
           <div class="hero-trust">
-            <div class="trust-item"><span class="trust-icon">↗</span><span><b>Browser based</b><small>No installation needed</small></span></div>
-            <div class="trust-item"><span class="trust-icon">⌘</span><span><b>Project support</b><small>Include your assets</small></span></div>
-            <div class="trust-item"><span class="trust-icon">▣</span><span><b>Windows output</b><small>Ready to download</small></span></div>
+            <div class="trust-item"><span class="trust-icon">↗</span><span><b>Runs online</b><small>No setup needed</small></span></div>
+            <div class="trust-item"><span class="trust-icon">⌘</span><span><b>Full projects</b><small>Add project files</small></span></div>
+            <div class="trust-item"><span class="trust-icon">▣</span><span><b>EXE download</b><small>Download when ready</small></span></div>
           </div>
         </div>
 
@@ -87,9 +87,9 @@
     <section class="builder-section" id="builder">
       <div class="section-wrap">
         <div class="builder-intro">
-          <div class="section-kicker"><span>01</span> LET'S MAKE SOMETHING</div>
+          <div class="section-kicker"><span>01</span> BUILD YOUR APP</div>
           <h2>Upload a project.<br><span>Build a Windows app.</span></h2>
-          <p>Upload your source files and dependencies, choose the application entry point, then configure the Windows build.</p>
+          <p>Upload your files, choose the main file and set up your build.</p>
         </div>
 
         <div class="builder wizard-builder">
@@ -101,7 +101,7 @@
           <section class="builder-main wizard-panel" id="step-one" aria-labelledby="step-one-title">
             <div class="builder-step">
               <div class="step-number">01</div>
-              <div class="step-copy"><h3 id="step-one-title">Add your project</h3><p>Upload your source files, choose the main file and select the programming language.</p></div>
+              <div class="step-copy"><h3 id="step-one-title">Add your project</h3><p>Add files and choose the main file and language.</p></div>
             </div>
 
             <div class="upload-warning" role="note"><strong>Do not upload confidential information.</strong> Only upload files you are comfortable sharing with EXEcify and its service providers. Never include passwords, API keys, private keys, personal data or other sensitive information.</div>
@@ -114,7 +114,7 @@
               <p><button type="button" class="folder-button" id="folder-button">Choose project folder <span>↗</span></button></p>
               <p><button type="button" class="folder-button" id="zip-button">Choose ZIP archive <span>↗</span></button></p>
               <input id="folder" type="file" webkitdirectory multiple hidden>
-              <small>SOURCE CODE · DEPENDENCIES · ASSETS</small>
+              <small>CODE · FILES · ASSETS</small>
             </div>
 
             <div class="file-summary" id="file-summary" hidden>
@@ -137,12 +137,12 @@
                   <option value="rust">Rust</option>
                   <option value="java">Java</option>
                 </select>
-                <small>Detected from your files. You can change this manually.</small>
+                <small>Detected automatically. Change it if needed.</small>
               </div>
               <div class="field entry-field">
                 <label for="entry"><span class="field-index">02</span> MAIN FILE / PROJECT MANIFEST</label>
                 <select id="entry" disabled><option value="">Add project files first</option></select>
-                <small id="entry-help">Choose the main source file or project manifest.</small>
+                <small id="entry-help">Select your main file.</small>
               </div>
             </div>
 
@@ -154,7 +154,7 @@
           <section class="settings-column wizard-panel" id="step-two" aria-labelledby="step-two-title" hidden>
             <div class="builder-step">
               <div class="step-number">02</div>
-              <div class="step-copy"><h3 id="step-two-title">Configure your app</h3><p>Choose the name, output format and optional application icon.</p></div>
+              <div class="step-copy"><h3 id="step-two-title">Configure your app</h3><p>Set a name, format and optional icon.</p></div>
             </div>
 
             <div class="field">
@@ -171,7 +171,7 @@
             <div class="field">
               <label for="icon">APPLICATION ICON <em>OPTIONAL</em></label>
               <label class="icon-picker"><span class="ico-badge">ICO</span><b id="icon-name">Choose an icon</b><input id="icon" type="file" accept=".ico"><span class="icon-browse">BROWSE ↗</span></label>
-              <small>Use a .ico file to customize your Windows app icon. Available for supported Python builds.</small>
+              <small>Python builds only. Use a .ico file.</small>
             </div>
 
             <div class="security"><div class="cf-turnstile" data-sitekey="0x4AAAAAAFzcsHnZICFxC91i"></div></div>
@@ -181,7 +181,7 @@
             </div>
             <div class="status" id="status" role="status" aria-live="polite"></div>
             <section class="build-verification" id="build-verification" hidden aria-live="polite">
-              <div class="verification-heading"><span>BUILD VERIFICATION</span><span id="verification-filename"></span></div>
+              <div class="verification-heading"><span>BUILD CHECK</span><span id="verification-filename"></span></div>
               <div class="verification-label">SHA-256 CHECKSUM</div>
               <code id="verification-hash" tabindex="0">Calculating…</code>
               <div class="verification-actions">
@@ -189,16 +189,16 @@
                 <a id="virustotal-link" href="#" target="_blank" rel="noopener noreferrer">Search on VirusTotal ↗</a>
               </div>
               <details class="verification-help">
-                <summary>How do I use this?</summary>
+                <summary>How to check the file</summary>
                 <ol>
                   <li>Click <b>Copy hash</b> to copy the SHA-256 checksum.</li>
                   <li>Click <b>Search on VirusTotal</b>. EXEcify opens a search for that exact checksum.</li>
-                  <li>If VirusTotal has seen the file before, you can review its scan results. If there are no results, that simply means it has not been analysed yet.</li>
+                  <li>Review any existing scan. No result means the file has not been scanned.</li>
                 </ol>
-                <p>You can also upload your EXE to VirusTotal if it has no existing report. Be aware: uploaded files are shared with VirusTotal and its security partners. Only upload files you are comfortable sharing.</p>
-                <p>A matching SHA-256 identifies the exact same file. A clean VirusTotal result does not guarantee that an application is safe.</p>
+                <p>You can upload the EXE to VirusTotal yourself. Uploaded files are shared with its security partners.</p>
+                <p>A matching hash identifies the exact file. A clean scan is not a safety guarantee.</p>
               </details>
-              <p>EXEcify does not automatically upload your file to VirusTotal. The checksum is provided so you can look up the exact build.</p>
+              <p>EXEcify never uploads your file to VirusTotal automatically.</p>
             </section>
             <div class="progress" id="progress"><i></i></div>
           </section>
@@ -236,17 +236,17 @@
     <section class="how-section" id="how-it-works">
       <div class="section-wrap">
         <div class="how-heading">
-          <div><div class="section-kicker"><span>02</span> BUILD PROCESS</div><h2>From project files<br><span>to a Windows build.</span></h2></div>
+          <div><div class="section-kicker"><span>02</span> HOW IT WORKS</div><h2>From code<br><span>to Windows.</span></h2></div>
           
         </div>
         <div class="steps-grid">
-          <article class="info-step"><div class="info-step-top"><span>01</span><span class="info-step-symbol">↑</span></div><h3>Upload</h3><p>Add your project files, dependency manifests and any assets your app needs.</p><div class="step-decoration upload-deco"><i></i><i></i><i></i></div></article>
-          <article class="info-step"><div class="info-step-top"><span>02</span><span class="info-step-symbol">⚙</span></div><h3>Configure</h3><p>Choose the executable format, enter the application name and add an optional icon.</p><div class="step-decoration config-deco"><i></i><i></i><i></i></div></article>
-          <article class="info-step"><div class="info-step-top"><span>03</span><span class="info-step-symbol">↗</span></div><h3>Download</h3><p>EXEcify runs the packaging process on a Windows machine and makes the output available to download.</p><div class="step-decoration download-deco"><i></i></div></article>
+          <article class="info-step"><div class="info-step-top"><span>01</span><span class="info-step-symbol">↑</span></div><h3>Upload</h3><p>Upload your code and required files.</p><div class="step-decoration upload-deco"><i></i><i></i><i></i></div></article>
+          <article class="info-step"><div class="info-step-top"><span>02</span><span class="info-step-symbol">⚙</span></div><h3>Configure</h3><p>Set the app name, format and optional icon.</p><div class="step-decoration config-deco"><i></i><i></i><i></i></div></article>
+          <article class="info-step"><div class="info-step-top"><span>03</span><span class="info-step-symbol">↗</span></div><h3>Download</h3><p>We build it on Windows. Then you download it.</p><div class="step-decoration download-deco"><i></i></div></article>
         </div>
         <div class="build-explainer">
-          <div class="build-explainer-label"><span></span> WHERE THE BUILD RUNS</div>
-          <p>Your project is sent to a temporary Windows build machine. EXEcify selects the matching toolchain — such as PyInstaller, Node.js, CMake, .NET, Go, Rust or Java — and builds your application with its project dependencies and assets. The resulting Windows executable is sent back for download. Temporary project files are automatically deleted after 24 hours.</p>
+          <div class="build-explainer-label"><span></span> BUILD SERVER</div>
+          <p>Your project is built on a temporary Windows machine using the tools required for its language. The finished app is sent back for download. Project files are deleted after 24 hours.</p>
         </div>
       </div>
     </section>
@@ -254,9 +254,9 @@
     <section class="features-section" id="features">
       <div class="section-wrap features-inner">
         <div class="features-copy">
-          <div class="section-kicker"><span>03</span> PROJECT FILES AND OUTPUT</div>
-          <h2>Include the files<br><span>your application needs.</span></h2>
-          <p>Many applications use files in addition to source code. Include the images, audio, fonts, configuration and data files that your application needs.</p>
+          <div class="section-kicker"><span>03</span> PROJECT FILES</div>
+          <h2>Include your<br><span>project files.</span></h2>
+          <p>Add images, audio and other files your app uses.</p>
           <div class="square-ad" aria-label="Advertisement" style="margin-top:34px;width:300px;max-width:100%;text-align:center">
             <small style="display:block;color:#8b93a1;font:10px 'DM Mono',monospace;letter-spacing:.12em;margin-bottom:10px">ADVERTISEMENT</small>
             <script>
@@ -273,9 +273,9 @@
 
         </div>
         <div class="feature-list">
-          <div class="feature-row"><span class="feature-number">01</span><div><h3>Keep your project together</h3><p>Upload folders with the images, sounds, fonts and other files your app uses.</p></div><span class="feature-arrow">↗</span></div>
-          <div class="feature-row"><span class="feature-number">02</span><div><h3>Choose your output</h3><p>Create one executable or a packaged application folder.</p></div><span class="feature-arrow">↗</span></div>
-          <div class="feature-row"><span class="feature-number">03</span><div><h3>Build for Windows</h3><p>The conversion runs on a Windows build machine, not in your browser.</p></div><span class="feature-arrow">↗</span></div>
+          <div class="feature-row"><span class="feature-number">01</span><div><h3>Include project files</h3><p>Add images, sounds and other required files.</p></div><span class="feature-arrow">↗</span></div>
+          <div class="feature-row"><span class="feature-number">02</span><div><h3>Output format</h3><p>Download one EXE or a ZIP folder.</p></div><span class="feature-arrow">↗</span></div>
+          <div class="feature-row"><span class="feature-number">03</span><div><h3>Windows build</h3><p>Builds run on a Windows machine.</p></div><span class="feature-arrow">↗</span></div>
         </div>
       </div>
     </section>
@@ -285,27 +285,27 @@
         <div class="section-kicker"><span>04</span> FAQ</div>
         <h2>Common questions</h2>
         <div class="faq-grid">
-          <details class="faq-item"><summary>What does EXEcify do?</summary><div class="faq-answer"><p>EXEcify is a website that builds Windows application packages from uploaded coding projects. You upload the project files, choose the main file or project manifest, select the available build settings and start the build. The project is processed on a Windows build machine. When the build succeeds, you can download the resulting EXE or ZIP package. EXEcify does not write or debug your application code.</p></div></details>
-          <details class="faq-item"><summary>Which programming languages are supported?</summary><div class="faq-answer"><p>The builder has options for Python, JavaScript with Node.js, TypeScript, C, C++, C# with .NET, Go, Rust and Java. The build tools and steps differ by language. Support for a language does not guarantee that every framework, library or project will build. Projects may fail if they need unsupported tools, system libraries or configuration.</p></div></details>
-          <details class="faq-item"><summary>Can I include images and other project files?</summary><div class="faq-answer"><p>Yes. Add individual files, select a project folder or upload a ZIP archive. Include the source code, dependency files and assets used by the application, such as images, audio, fonts and data files. Then choose the correct main source file or project manifest. Make sure file paths used by your code match the uploaded folder structure.</p></div></details>
-          <details class="faq-item"><summary>What are the two output formats?</summary><div class="faq-answer"><p>Single file attempts to package the application as one EXE, when the selected build process supports it. App folder keeps the executable together with supporting files and returns them in a ZIP archive. Choose the folder package if your application needs separate data files or libraries at runtime.</p></div></details>
-          <details class="faq-item"><summary>Where does the build happen?</summary><div class="faq-answer"><p>The build does not run in your browser or on your own computer. EXEcify sends the uploaded project to a temporary Windows build environment and runs the relevant compiler or packaging tool there. The finished output is then made available in your browser. Build time depends on the project, its dependencies and the work required by the build tools.</p></div></details>
-          <details class="faq-item"><summary>Does a successful build mean the app is safe and will work everywhere?</summary><div class="faq-answer"><p>No. A successful build only means the packaging process completed. It does not test every feature of your application, guarantee compatibility with every Windows computer or certify that the file is safe. Test the result yourself before distributing it. Windows may also show warnings for unsigned or unfamiliar EXE files.</p></div></details>
-          <details class="faq-item"><summary>What is the SHA-256 value shown after a build?</summary><div class="faq-answer"><p>SHA-256 is a checksum calculated from the downloaded build. It can be used to identify that exact file and search for an existing report on VirusTotal. EXEcify only opens a VirusTotal search for the checksum; it does not upload the EXE. No search result means there is no report for that hash, not that the file has been declared safe.</p></div></details>
-          <details class="faq-item"><summary>Can I upload private or confidential files?</summary><div class="faq-answer"><p>No. Do not upload passwords, API keys, private keys, personal information, confidential source code or anything you are not comfortable sharing with EXEcify and its service providers. Remove secrets before uploading. Automatic cleanup and encryption are safeguards, but they do not make uploading sensitive information appropriate.</p></div></details>
-          <details class="faq-item"><summary>Why might a build fail?</summary><div class="faq-answer"><p>A build can fail if the main file or language is selected incorrectly, required files are missing, dependencies cannot be installed, or the project needs tools or system libraries that are not available in the build environment. Check the error message and confirm that the project structure and dependency files are complete. If you contact support, do not include passwords, tokens or other private information.</p></div></details>
+          <details class="faq-item"><summary>What does EXEcify do?</summary><div class="faq-answer"><p>EXEcify turns uploaded coding projects into Windows apps. Upload your files, choose the main file and build settings, then download the EXE or ZIP. It does not write or debug your code.</p></div></details>
+          <details class="faq-item"><summary>Which programming languages are supported?</summary><div class="faq-answer"><p>Python, JavaScript, TypeScript, C, C++, C#/.NET, Go, Rust and Java. Not every framework or project is guaranteed to build.</p></div></details>
+          <details class="faq-item"><summary>Can I include images and other project files?</summary><div class="faq-answer"><p>Yes. Upload files, a folder or a ZIP. Include dependencies and assets such as images, audio and data files. Select the correct main file.</p></div></details>
+          <details class="faq-item"><summary>What are the two output formats?</summary><div class="faq-answer"><p>Single file creates one EXE when supported. App folder keeps required files together in a ZIP.</p></div></details>
+          <details class="faq-item"><summary>Where does the build happen?</summary><div class="faq-answer"><p>Builds run on a temporary Windows machine, not in your browser. Build time depends on your project and dependencies.</p></div></details>
+          <details class="faq-item"><summary>Does a successful build mean the app is safe and will work everywhere?</summary><div class="faq-answer"><p>No. A successful build only means packaging finished. Test the app yourself. Windows may warn about unsigned or unfamiliar EXE files.</p></div></details>
+          <details class="faq-item"><summary>What is the SHA-256 value shown after a build?</summary><div class="faq-answer"><p>It identifies the exact downloaded file. Search it on VirusTotal to check for existing reports. EXEcify does not upload your file. No report does not mean safe.</p></div></details>
+          <details class="faq-item"><summary>Can I upload private or confidential files?</summary><div class="faq-answer"><p>No. Never upload passwords, API keys, personal data or confidential files. Remove secrets before uploading.</p></div></details>
+          <details class="faq-item"><summary>Why might a build fail?</summary><div class="faq-answer"><p>Missing files, incorrect settings, unavailable dependencies or unsupported tools can cause errors. Check the build message and project setup.</p></div></details>
         </div>
-        <p class="faq-more">For details about data handling, build limitations and security safeguards, visit the <a href="./security.html">Security</a>, <a href="./privacy.html">Privacy</a>, <a href="./downloads.html">Downloads</a> and <a href="./about.html">About</a> pages.</p>
+        <p class="faq-more">More details: <a href="./security.html">Security</a>, <a href="./privacy.html">Privacy</a>, <a href="./downloads.html">Downloads</a> and <a href="./about.html">About</a> pages.</p>
       </div>
     </section>
 
     <section class="closing-banner">
-      <div class="closing-banner-inner"><div><span class="closing-kicker">READY WHEN YOU ARE</span><h2>Your next app starts<br>with your code.</h2></div><a href="#builder" class="closing-cta">Start building <span>↗</span></a><div class="closing-watermark">Py<span>.</span></div></div>
+      <div class="closing-banner-inner"><div><span class="closing-kicker">READY TO BUILD</span><h2>Build your app<br>from your code.</h2></div><a href="#builder" class="closing-cta">Start building <span>↗</span></a><div class="closing-watermark">Py<span>.</span></div></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner"><a class="brand footer-brand" href="/"><img class="brand-logo" src="./static/execify-logo.svg" alt="EXEcify logo"><span>EXEcify</span></a><span>MAKE YOUR PROJECT WINDOWS READY.</span><a href="./about.html">About</a><a href="./security.html">Security</a><a href="./changelog.html">Changelog</a><a href="./downloads.html">Downloads</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><a href="https://x.com/intent/post?url=https%3A%2F%2Fmartgeluk11-dev.github.io%2F&text=Build%20Windows%20apps%20online%20with%20EXEcify" target="_blank" rel="noopener noreferrer">Share on X</a><a href="https://www.reddit.com/submit?url=https%3A%2F%2Fmartgeluk11-dev.github.io%2F&title=EXEcify%20%E2%80%94%20Online%20Windows%20EXE%20Builder" target="_blank" rel="noopener noreferrer">Share on Reddit</a><span>© 2026 EXECIFY</span></div>
+    <div class="footer-inner"><a class="brand footer-brand" href="/"><img class="brand-logo" src="./static/execify-logo.svg" alt="EXEcify logo"><span>EXEcify</span></a><span>CODE TO WINDOWS.</span><a href="./about.html">About</a><a href="./security.html">Security</a><a href="./changelog.html">Changelog</a><a href="./downloads.html">Downloads</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><a href="https://x.com/intent/post?url=https%3A%2F%2Fmartgeluk11-dev.github.io%2F&text=Build%20Windows%20apps%20online%20with%20EXEcify" target="_blank" rel="noopener noreferrer">Share on X</a><a href="https://www.reddit.com/submit?url=https%3A%2F%2Fmartgeluk11-dev.github.io%2F&title=EXEcify%20%E2%80%94%20Online%20Windows%20EXE%20Builder" target="_blank" rel="noopener noreferrer">Share on Reddit</a><span>© 2026 EXECIFY</span></div>
   </footer>
   <script src="./static/app.js?v=11"></script>
   <script data-cfasync="false" src="https://bauval.org/14/32b20b9e6ec0e0db647e18b7d28aa039"></script>
