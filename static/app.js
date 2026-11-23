@@ -105,8 +105,15 @@ function renderFiles(){
 fileInput.addEventListener("change",e=>{addFiles(e.target.files);fileInput.value="";});
 folderInput.addEventListener("change",e=>{addFiles(e.target.files);folderInput.value="";});
 zipInput.addEventListener("change",e=>{addFiles(e.target.files);zipInput.value="";});
-$("folder-button").addEventListener("click",()=>$("folder").click());
-$("zip-button").addEventListener("click",()=>$("zip-file").click());
+function openFilePicker(input){
+  // Keep the picker call directly inside the user click gesture for browser security.
+  if(typeof input.showPicker==="function"){
+    try{input.showPicker();return;}catch(_){}
+  }
+  input.click();
+}
+$("folder-button").addEventListener("click",()=>openFilePicker(folderInput));
+$("zip-button").addEventListener("click",()=>openFilePicker(zipInput));
 $("clear").addEventListener("click",()=>{projectFiles=[];renderFiles();});
 $("language").addEventListener("change",renderFiles);
 const drop=$("drop");
