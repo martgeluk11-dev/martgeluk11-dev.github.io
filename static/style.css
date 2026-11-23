@@ -308,3 +308,11 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
 .verification-actions button{border:0;background:none;padding:0;color:var(--text,#172033);font:600 12px inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .verification-actions a{color:var(--accent,#2463eb);font-size:12px;font-weight:700;text-decoration:none}
 .build-verification p{margin:14px 0 0;color:var(--muted,#64748b);font-size:11px;line-height:1.65}
+
+.verification-help{margin-top:16px;border-top:1px solid var(--border,#dbe2ee);padding-top:13px}
+.verification-help summary{cursor:pointer;font-size:12px;font-weight:700;color:var(--text,#172033);list-style:none}
+.verification-help summary::-webkit-details-marker{display:none}
+.verification-help summary:after{content:"+";float:right;font:16px 'DM Mono',monospace}
+.verification-help[open] summary:after{content:"−"}
+.verification-help ol{padding-left:20px;margin:14px 0 10px;color:var(--muted,#64748b);font-size:11px;line-height:1.8}
+.verification-help p{margin:10px 0 0;color:var(--muted,#64748b);font-size:11px;line-height:1.7}
