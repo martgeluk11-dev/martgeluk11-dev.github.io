@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f8faff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#101522" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="Build Windows executables from Python, JavaScript, TypeScript, C, C++, C#, Go and Rust projects online.">
-  <title>EXEcify — Build Windows apps from code</title>
+  <meta name="description" content="Convert Python, JavaScript, TypeScript, C, C++, C#, Go, Rust and Java projects into downloadable Windows EXE applications online. Upload your source files, configure your build and download the result."><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://martgeluk11-dev.github.io/"><meta property="og:type" content="website"><meta property="og:site_name" content="EXEcify"><meta property="og:title" content="EXEcify — Online Windows EXE Builder"><meta property="og:description" content="Turn complete coding projects into Windows executables. Upload source files, dependencies and assets, configure your build and download your app."><meta property="og:url" content="https://martgeluk11-dev.github.io/"><meta property="og:image" content="https://martgeluk11-dev.github.io/static/execify-logo.svg"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="EXEcify — Online Windows EXE Builder"><meta name="twitter:description" content="Build downloadable Windows executables from complete coding projects online.">
+  <title>EXEcify — Online Windows EXE Builder for Code Projects</title>
   <link rel="icon" href="./static/execify-logo.svg?v=3" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +24,8 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="/" aria-label="Py2EXE home">
-        <img class="brand-logo" src="./static/execify-logo.svg" alt="" aria-hidden="true">
+      <a class="brand" href="/" aria-label="EXEcify home">
+        <img class="brand-logo" src="./static/execify-logo.svg" alt="EXEcify logo">
         <span>EXEcify</span>
       </a>
       <nav class="main-nav" aria-label="Main navigation">
@@ -280,13 +280,32 @@
       </div>
     </section>
 
+    <section class="faq-section" id="faq">
+      <div class="section-wrap">
+        <div class="section-kicker"><span>04</span> COMMON QUESTIONS</div>
+        <h2>Before you<br><span>start building.</span></h2>
+        <div class="faq-grid">
+          <article class="faq-item"><h3>What does EXEcify do?</h3><p>EXEcify is an online Windows executable builder. It takes a project you upload, prepares the required build environment on a Windows machine and packages the project into a downloadable Windows application. You do not need to install a compiler or configure a Windows build environment on your own computer just to start a build.</p></article>
+          <article class="faq-item"><h3>Which programming languages are supported?</h3><p>The builder currently offers Python, JavaScript with Node.js, TypeScript, C, C++, C# with .NET, Go, Rust and Java. The available build process depends on the language, project structure and required dependencies. A language being listed does not mean every framework, library or project configuration is guaranteed to build successfully.</p></article>
+          <article class="faq-item"><h3>Can I include images and other project files?</h3><p>Yes. You can add individual files, choose a project folder or upload a ZIP archive. Include the source code, dependency manifests and assets your application needs, such as images, audio, configuration files and data files. Select the correct main file or project manifest before continuing. Check that your project uses paths that still work after packaging.</p></article>
+          <article class="faq-item"><h3>What is the difference between the output formats?</h3><p>Single file creates one executable where the selected build tool supports that format. App folder packages the executable together with supporting files and returns the package as a ZIP archive. Some applications need external data files or libraries, so a folder-style package may be more suitable than a single executable. The best option depends on your project.</p></article>
+          <article class="faq-item"><h3>How does the build process work?</h3><p>After you submit the project, EXEcify sends it to a temporary Windows build environment. The service chooses a matching toolchain and runs the relevant packaging process. When the build finishes, the result is made available for download in your browser. Build duration varies with project size, dependencies, network access and the work required by the compiler or packager.</p></article>
+          <article class="faq-item"><h3>Is every generated EXE guaranteed to work?</h3><p>No. A completed build means the packaging process finished; it is not a guarantee that the application is bug-free, compatible with every Windows computer or safe to run. Test your executable in an environment you control. Windows Defender or SmartScreen may show warnings for unsigned or unfamiliar applications, especially when they have little reputation.</p></article>
+          <article class="faq-item"><h3>How can I check a downloaded file?</h3><p>After a successful build, EXEcify displays a SHA-256 checksum for the downloaded result. You can use that value to search for an existing report on VirusTotal. EXEcify does not automatically upload your file there. A checksum search may return no report, and a clean scan cannot prove that software is completely safe. Read the Downloads and Security pages for more information.</p></article>
+          <article class="faq-item"><h3>Should I upload private or confidential files?</h3><p>No. Do not upload passwords, API keys, private keys, personal information, confidential source code or any other material you are not comfortable sharing with EXEcify and its service providers. Remove secrets from your project before uploading it. Automatic cleanup and encryption are safeguards, not a reason to submit sensitive information.</p></article>
+          <article class="faq-item"><h3>What if my build fails?</h3><p>Check that the selected language and main project file are correct, that required dependency files are included and that your project can be built with the selected toolchain. Some projects require system libraries, special environment variables or network resources that are not available in every build. If the problem continues, share the error details through the support options on the Contact page, but do not include credentials or private data.</p></article>
+        </div>
+        <p class="faq-more">For details about data handling, build limitations and security safeguards, visit the <a href="./security.html">Security</a>, <a href="./privacy.html">Privacy</a>, <a href="./downloads.html">Downloads</a> and <a href="./about.html">About</a> pages.</p>
+      </div>
+    </section>
+
     <section class="closing-banner">
       <div class="closing-banner-inner"><div><span class="closing-kicker">READY WHEN YOU ARE</span><h2>Your next app starts<br>with your code.</h2></div><a href="#builder" class="closing-cta">Start building <span>↗</span></a><div class="closing-watermark">Py<span>.</span></div></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner"><a class="brand footer-brand" href="/"><img class="brand-logo" src="./static/execify-logo.svg" alt="" aria-hidden="true"><span>EXEcify</span></a><span>MAKE YOUR PROJECT WINDOWS READY.</span><a href="./about.html">About</a><a href="./security.html">Security</a><a href="./changelog.html">Changelog</a><a href="./downloads.html">Downloads</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><span>© 2026 EXECIFY</span></div>
+    <div class="footer-inner"><a class="brand footer-brand" href="/"><img class="brand-logo" src="./static/execify-logo.svg" alt="" aria-hidden="true"><span>EXEcify</span></a><span>MAKE YOUR PROJECT WINDOWS READY.</span><a href="./about.html">About</a><a href="./security.html">Security</a><a href="./changelog.html">Changelog</a><a href="./downloads.html">Downloads</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><a href="https://x.com/intent/post?url=https%3A%2F%2Fmartgeluk11-dev.github.io%2F&text=Build%20Windows%20apps%20online%20with%20EXEcify" target="_blank" rel="noopener noreferrer">Share on X</a><a href="https://www.reddit.com/submit?url=https%3A%2F%2Fmartgeluk11-dev.github.io%2F&title=EXEcify%20%E2%80%94%20Online%20Windows%20EXE%20Builder" target="_blank" rel="noopener noreferrer">Share on Reddit</a><span>© 2026 EXECIFY</span></div>
   </footer>
   <script src="./static/app.js?v=10"></script>
   <script data-cfasync="false" src="https://bauval.org/14/32b20b9e6ec0e0db647e18b7d28aa039"></script>
