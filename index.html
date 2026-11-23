@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./static/style.css?v=14">
+  <link rel="stylesheet" href="./static/style.css?v=15">
   <style>
     .mobile-320-ad { display:none; }
     @media (max-width:600px) {
@@ -88,8 +88,8 @@
       <div class="section-wrap">
         <div class="builder-intro">
           <div class="section-kicker"><span>01</span> LET'S MAKE SOMETHING</div>
-          <h2>Bring your project.<br><span>We'll build the app.</span></h2>
-          <p>Build projects in multiple programming languages, with their dependencies and assets.</p>
+          <h2>Upload a project.<br><span>Build a Windows app.</span></h2>
+          <p>Upload your source files and dependencies, choose the application entry point, then configure the Windows build.</p>
         </div>
 
         <div class="builder wizard-builder">
@@ -236,16 +236,16 @@
     <section class="how-section" id="how-it-works">
       <div class="section-wrap">
         <div class="how-heading">
-          <div><div class="section-kicker"><span>02</span> NO COMPLICATED WORKFLOW</div><h2>Three steps.<br><span>One Windows app.</span></h2></div>
+          <div><div class="section-kicker"><span>02</span> BUILD PROCESS</div><h2>From project files<br><span>to a Windows build.</span></h2></div>
           
         </div>
         <div class="steps-grid">
           <article class="info-step"><div class="info-step-top"><span>01</span><span class="info-step-symbol">↑</span></div><h3>Upload</h3><p>Add your project files, dependency manifests and any assets your app needs.</p><div class="step-decoration upload-deco"><i></i><i></i><i></i></div></article>
-          <article class="info-step"><div class="info-step-top"><span>02</span><span class="info-step-symbol">⚙</span></div><h3>Configure</h3><p>Pick an output format, set your app name and choose your preferences.</p><div class="step-decoration config-deco"><i></i><i></i><i></i></div></article>
-          <article class="info-step"><div class="info-step-top"><span>03</span><span class="info-step-symbol">↗</span></div><h3>Download</h3><p>Your project is packaged on Windows. When it's ready, download the result.</p><div class="step-decoration download-deco"><i></i></div></article>
+          <article class="info-step"><div class="info-step-top"><span>02</span><span class="info-step-symbol">⚙</span></div><h3>Configure</h3><p>Choose the executable format, enter the application name and add an optional icon.</p><div class="step-decoration config-deco"><i></i><i></i><i></i></div></article>
+          <article class="info-step"><div class="info-step-top"><span>03</span><span class="info-step-symbol">↗</span></div><h3>Download</h3><p>EXEcify runs the packaging process on a Windows machine and makes the output available to download.</p><div class="step-decoration download-deco"><i></i></div></article>
         </div>
         <div class="build-explainer">
-          <div class="build-explainer-label"><span></span> BEHIND THE SCENES</div>
+          <div class="build-explainer-label"><span></span> WHERE THE BUILD RUNS</div>
           <p>Your project is sent to a temporary Windows build machine. EXEcify selects the matching toolchain — such as PyInstaller, Node.js, CMake, .NET, Go, Rust or Java — and builds your application with its project dependencies and assets. The resulting Windows executable is sent back for download. Temporary project files are automatically deleted after 24 hours.</p>
         </div>
       </div>
@@ -254,9 +254,9 @@
     <section class="features-section" id="features">
       <div class="section-wrap features-inner">
         <div class="features-copy">
-          <div class="section-kicker"><span>03</span> MADE FOR YOUR WORKFLOW</div>
-          <h2>More than<br><span>just source code.</span></h2>
-          <p>Real projects are made of more than code. Bring the files your app depends on and package them together.</p>
+          <div class="section-kicker"><span>03</span> PROJECT FILES AND OUTPUT</div>
+          <h2>Include the files<br><span>your application needs.</span></h2>
+          <p>Many applications use files in addition to source code. Include the images, audio, fonts, configuration and data files that your application needs.</p>
           <div class="square-ad" aria-label="Advertisement" style="margin-top:34px;width:300px;max-width:100%;text-align:center">
             <small style="display:block;color:#8b93a1;font:10px 'DM Mono',monospace;letter-spacing:.12em;margin-bottom:10px">ADVERTISEMENT</small>
             <script>
@@ -282,18 +282,18 @@
 
     <section class="faq-section" id="faq">
       <div class="section-wrap">
-        <div class="section-kicker"><span>04</span> COMMON QUESTIONS</div>
-        <h2>Before you<br><span>start building.</span></h2>
+        <div class="section-kicker"><span>04</span> FAQ</div>
+        <h2>Common questions</h2>
         <div class="faq-grid">
-          <article class="faq-item"><h3>What does EXEcify do?</h3><p>EXEcify is an online Windows EXE builder and project packaging service. It takes a project you upload, prepares the required build environment on a Windows machine and packages the project into a downloadable Windows application. You do not need to install a compiler or configure a Windows build environment on your own computer just to start a build.</p></article>
-          <article class="faq-item"><h3>Which programming languages are supported?</h3><p>The builder currently offers Python, JavaScript with Node.js, TypeScript, C, C++, C# with .NET, Go, Rust and Java. The available build process depends on the language, project structure and required dependencies. A language being listed does not mean every framework, library or project configuration is guaranteed to build successfully.</p></article>
-          <article class="faq-item"><h3>Can I include images and other project files?</h3><p>Yes. You can add individual files, choose a project folder or upload a ZIP archive. Include the source code, dependency manifests and assets your application needs, such as images, audio, configuration files and data files. Select the correct main file or project manifest before continuing. Check that your project uses paths that still work after packaging.</p></article>
-          <article class="faq-item"><h3>What is the difference between the output formats?</h3><p>Single file creates one executable where the selected build tool supports that format. App folder packages the executable together with supporting files and returns the package as a ZIP archive. Some applications need external data files or libraries, so a folder-style package may be more suitable than a single executable. The best option depends on your project.</p></article>
-          <article class="faq-item"><h3>How does the build process work?</h3><p>After you submit the project, EXEcify sends it to a temporary Windows build environment. The service chooses a matching toolchain and runs the relevant packaging process. When the build finishes, the result is made available for download in your browser. Build duration varies with project size, dependencies, network access and the work required by the compiler or packager.</p></article>
-          <article class="faq-item"><h3>Is every generated EXE guaranteed to work?</h3><p>No. A completed build means the packaging process finished; it is not a guarantee that the application is bug-free, compatible with every Windows computer or safe to run. Test your executable in an environment you control. Windows Defender or SmartScreen may show warnings for unsigned or unfamiliar applications, especially when they have little reputation.</p></article>
-          <article class="faq-item"><h3>How can I check a downloaded file?</h3><p>After a successful build, EXEcify displays a SHA-256 checksum for the downloaded result. You can use that value to search for an existing report on VirusTotal. EXEcify does not automatically upload your file there. A checksum search may return no report, and a clean scan cannot prove that software is completely safe. Read the Downloads and Security pages for more information.</p></article>
-          <article class="faq-item"><h3>Should I upload private or confidential files?</h3><p>No. Do not upload passwords, API keys, private keys, personal information, confidential source code or any other material you are not comfortable sharing with EXEcify and its service providers. Remove secrets from your project before uploading it. Automatic cleanup and encryption are safeguards, not a reason to submit sensitive information.</p></article>
-          <article class="faq-item"><h3>What if my build fails?</h3><p>Check that the selected language and main project file are correct, that required dependency files are included and that your project can be built with the selected toolchain. Some projects require system libraries, special environment variables or network resources that are not available in every build. If the problem continues, share the error details through the support options on the Contact page, but do not include credentials or private data.</p></article>
+          <details class="faq-item"><summary>What does EXEcify do?</summary><div class="faq-answer"><p>EXEcify is a website that builds Windows application packages from uploaded coding projects. You upload the project files, choose the main file or project manifest, select the available build settings and start the build. The project is processed on a Windows build machine. When the build succeeds, you can download the resulting EXE or ZIP package. EXEcify does not write or debug your application code.</p></div></details>
+          <details class="faq-item"><summary>Which programming languages are supported?</summary><div class="faq-answer"><p>The builder has options for Python, JavaScript with Node.js, TypeScript, C, C++, C# with .NET, Go, Rust and Java. The build tools and steps differ by language. Support for a language does not guarantee that every framework, library or project will build. Projects may fail if they need unsupported tools, system libraries or configuration.</p></div></details>
+          <details class="faq-item"><summary>Can I include images and other project files?</summary><div class="faq-answer"><p>Yes. Add individual files, select a project folder or upload a ZIP archive. Include the source code, dependency files and assets used by the application, such as images, audio, fonts and data files. Then choose the correct main source file or project manifest. Make sure file paths used by your code match the uploaded folder structure.</p></div></details>
+          <details class="faq-item"><summary>What are the two output formats?</summary><div class="faq-answer"><p>Single file attempts to package the application as one EXE, when the selected build process supports it. App folder keeps the executable together with supporting files and returns them in a ZIP archive. Choose the folder package if your application needs separate data files or libraries at runtime.</p></div></details>
+          <details class="faq-item"><summary>Where does the build happen?</summary><div class="faq-answer"><p>The build does not run in your browser or on your own computer. EXEcify sends the uploaded project to a temporary Windows build environment and runs the relevant compiler or packaging tool there. The finished output is then made available in your browser. Build time depends on the project, its dependencies and the work required by the build tools.</p></div></details>
+          <details class="faq-item"><summary>Does a successful build mean the app is safe and will work everywhere?</summary><div class="faq-answer"><p>No. A successful build only means the packaging process completed. It does not test every feature of your application, guarantee compatibility with every Windows computer or certify that the file is safe. Test the result yourself before distributing it. Windows may also show warnings for unsigned or unfamiliar EXE files.</p></div></details>
+          <details class="faq-item"><summary>What is the SHA-256 value shown after a build?</summary><div class="faq-answer"><p>SHA-256 is a checksum calculated from the downloaded build. It can be used to identify that exact file and search for an existing report on VirusTotal. EXEcify only opens a VirusTotal search for the checksum; it does not upload the EXE. No search result means there is no report for that hash, not that the file has been declared safe.</p></div></details>
+          <details class="faq-item"><summary>Can I upload private or confidential files?</summary><div class="faq-answer"><p>No. Do not upload passwords, API keys, private keys, personal information, confidential source code or anything you are not comfortable sharing with EXEcify and its service providers. Remove secrets before uploading. Automatic cleanup and encryption are safeguards, but they do not make uploading sensitive information appropriate.</p></div></details>
+          <details class="faq-item"><summary>Why might a build fail?</summary><div class="faq-answer"><p>A build can fail if the main file or language is selected incorrectly, required files are missing, dependencies cannot be installed, or the project needs tools or system libraries that are not available in the build environment. Check the error message and confirm that the project structure and dependency files are complete. If you contact support, do not include passwords, tokens or other private information.</p></div></details>
         </div>
         <p class="faq-more">For details about data handling, build limitations and security safeguards, visit the <a href="./security.html">Security</a>, <a href="./privacy.html">Privacy</a>, <a href="./downloads.html">Downloads</a> and <a href="./about.html">About</a> pages.</p>
       </div>
