@@ -214,6 +214,8 @@ $("build").addEventListener("click",async()=>{
         const download=await fetch(API_BASE+"/api/jobs/"+encodeURIComponent(job_id)+"/download",{headers:auth});
         if(!download.ok)throw new Error("Build completed, but the download failed.");
         const blob=await download.blob();
+        const filename=result.filename||"my_app.exe";
+        await showBuildVerification(blob,filename);
         // Confirm the complete response reached the browser before asking the
         // Worker to delete the temporary result. TTL is the fallback.
         try{await fetch(API_BASE+"/api/jobs/"+encodeURIComponent(job_id)+"/downloaded",{method:"POST",headers:auth});}catch(_){}
