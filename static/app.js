@@ -119,6 +119,26 @@ $("formats").addEventListener("click",e=>{
 });
 $("icon").addEventListener("change",e=>{iconFile=e.target.files[0]||null;$("icon-name").textContent=iconFile?iconFile.name:"Choose an icon";});
 function setStatus(message,error=false){$("status").textContent=message;$("status").classList.toggle("error",error);}
+
+async function showBuildVerification(blob,filename){
+  const panel=$("build-verification");
+  panel.hidden=false;
+  $("verification-filename").textContent=filename;
+  $("verification-hash").textContent="Calculating SHA-256…";
+  $("virustotal-link").removeAttribute("href");
+  try{
+    const digest=await crypto.subtle.digest("SHA-256",await blob.arrayBuffer());
+    const hash=[...new Uint8Array(digest)].map(byte=>byte.toString(16).padStart(2,"0")).join("");
+    $("verification-hash").textContent=hash;
+    $("copy-hash").onclick=async()=>{
+      try{await navigator.clipboard.writeText(hash);$("copy-hash").textContent="Copied";setTimeout(()=>$("copy-hash").textContent="Copy hash",1800);}
+      catch{$("verification-hash").focus?.();}
+    };
+    $("virustotal-link").href="https://www.virustotal.com/gui/search/"+hash;
+  }catch(error){
+    $("verification-hash").textContent="Could not calculate the checksum in this browser.";
+  }
+}
 let simulatedProgress=0;
 let progressTimer=null;
 function paintProgress(value){
@@ -161,7 +181,7 @@ $("build").addEventListener("click",async()=>{
   if(total>80*1024*1024){setStatus("Your project is larger than 80 MB.",true);return;}
   const captcha=window.turnstile?.getResponse?.();
   if(!captcha){setStatus("Please complete the security check first.",true);return;}
-  const button=$("build");button.disabled=true;button.querySelector("span").textContent="Uploading project…";
+  $("build-verification").hidden=true;\n  const button=$("build");button.disabled=true;button.querySelector("span").textContent="Uploading project…";
   resetProgress();
   try{
     if(API_BASE.includes("YOUR-WORKER"))throw new Error("The build service URL has not been configured yet.");
@@ -198,7 +218,7 @@ $("build").addEventListener("click",async()=>{
         // Worker to delete the temporary result. TTL is the fallback.
         try{await fetch(API_BASE+"/api/jobs/"+encodeURIComponent(job_id)+"/downloaded",{method:"POST",headers:auth});}catch(_){}
         const a=document.createElement("a"),objectUrl=URL.createObjectURL(blob);
-        a.href=objectUrl;a.download=result.filename||"my_app.exe";document.body.appendChild(a);a.click();a.remove();
+        a.href=objectUrl;a.download=filename;document.body.appendChild(a);a.click();a.remove();
         setTimeout(()=>URL.revokeObjectURL(objectUrl),30000);
         setStatus("Build complete — your download should have started.");break;
       }
