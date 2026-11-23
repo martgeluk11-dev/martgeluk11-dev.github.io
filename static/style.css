@@ -295,3 +295,16 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
   input::placeholder{color:#8492aa}
   ::selection{background:#5269b5;color:#fff}
 }
+
+
+/* Build verification */
+.build-verification{margin-top:18px;padding:18px;border:1px solid var(--border,#dbe2ee);border-radius:12px;background:var(--surface,#fff);min-width:0}
+.build-verification[hidden]{display:none}
+.verification-heading{display:flex;justify-content:space-between;gap:12px;align-items:center;font:500 10px 'DM Mono',monospace;letter-spacing:.1em;color:var(--muted,#64748b);text-transform:uppercase}
+#verification-filename{max-width:55%;overflow-wrap:anywhere;text-align:right;letter-spacing:0;text-transform:none}
+.verification-label{margin-top:18px;font:500 10px 'DM Mono',monospace;letter-spacing:.1em;color:var(--muted,#64748b)}
+#verification-hash{display:block;margin-top:8px;padding:12px;background:var(--background,#f4f6fa);border-radius:7px;overflow-wrap:anywhere;word-break:break-all;font:11px 'DM Mono',monospace;line-height:1.7;color:var(--text,#172033)}
+.verification-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:14px}
+.verification-actions button{border:0;background:none;padding:0;color:var(--text,#172033);font:600 12px inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.verification-actions a{color:var(--accent,#2463eb);font-size:12px;font-weight:700;text-decoration:none}
+.build-verification p{margin:14px 0 0;color:var(--muted,#64748b);font-size:11px;line-height:1.65}
