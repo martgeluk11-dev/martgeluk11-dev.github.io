@@ -539,3 +539,10 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
 }
 @media(max-width:850px){.share-options{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:480px){.share-section{padding:45px 0}.share-inner{width:calc(100% - 38px)}.share-options{gap:8px}.share-option{min-height:75px;font-size:10px}}
+
+
+/* Real platform marks in the share links */
+.share-option .share-brand-icon{width:30px;height:30px;display:block;object-fit:contain;flex:0 0 auto}
+.share-option .share-x-icon{filter:invert(0)}
+.share-option .share-action-icon{width:28px;height:28px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media(prefers-color-scheme:dark){.share-option .share-x-icon{filter:invert(1)}}
