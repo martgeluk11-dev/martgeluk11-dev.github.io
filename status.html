@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8faff">
+  <meta name="description" content="Live checks for the EXEcify website and build API, with clear information about what each check covers.">
+  <link rel="canonical" href="https://martgeluk11-dev.github.io/status.html">
+  <title>Service status — EXEcify</title>
+  <link rel="icon" href="./static/execify-logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/style.css?v=19">
+  <style>
+    .status-wrap{width:min(900px,calc(100% - 40px));margin:76px auto 100px}
+    .status-kicker{font:500 11px 'DM Mono',monospace;letter-spacing:.13em;color:#64748b;text-transform:uppercase}
+    .status-wrap h1{font-size:clamp(38px,6vw,64px);letter-spacing:-.055em;line-height:1.02;margin:18px 0}
+    .status-lead{font-size:18px;line-height:1.7;max-width:740px;color:var(--muted,#64748b)}
+    .status-card{margin:34px 0 20px;border:1px solid var(--line);border-radius:18px;background:var(--white);overflow:hidden}
+    .status-row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 24px;border-bottom:1px solid var(--line)}
+    .status-row:last-child{border-bottom:0}.status-name{font-weight:800}.status-detail{font-size:13px;color:var(--muted);margin-top:5px}
+    .status-pill{font:500 11px 'DM Mono',monospace;padding:8px 11px;border-radius:99px;background:#edf2f7;color:#526174;white-space:nowrap}
+    .status-pill.ok{background:#e8f7ef;color:#167447}.status-pill.bad{background:#fff0ed;color:#b33c2b}
+    .status-note{border-left:3px solid var(--blue);padding:14px 18px;background:var(--blue-pale);border-radius:0 12px 12px 0;color:var(--ink);line-height:1.7;font-size:14px}
+    .status-meta{font:11px 'DM Mono',monospace;color:var(--muted);margin-top:18px}
+    @media(max-width:600px){.status-row{padding:18px;align-items:flex-start}.status-wrap{margin-top:48px}}
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="./"><img class="brand-logo" src="./static/execify-logo.svg" alt="EXEcify logo"><span>EXEcify</span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="./">Home</a><a href="./about.html">About</a><a href="./security.html">Security</a><a href="./docs.html">Docs</a></nav>
+    <a class="header-cta" href="./#builder">Start converting <span>↗</span></a>
+  </div></header>
+  <main class="status-wrap">
+    <div class="status-kicker">OPERATIONS / LIVE CHECKS</div>
+    <h1>Service status.</h1>
+    <p class="status-lead">A transparent view of the checks EXEcify can perform automatically. This page does not claim that every language build or download path is currently working.</p>
+    <div class="status-card" aria-live="polite">
+      <div class="status-row"><div><div class="status-name">Website</div><div class="status-detail">This page loaded successfully in your browser.</div></div><span class="status-pill ok">RESPONDING</span></div>
+      <div class="status-row"><div><div class="status-name">Build API & storage</div><div class="status-detail" id="api-detail">Checking the public health endpoint…</div></div><span class="status-pill" id="api-status">CHECKING</span></div>
+    </div>
+    <div class="status-note"><strong>What this check does not prove:</strong> the health endpoint checks that the Worker responds and can read from its KV binding. It does not test GitHub Actions dispatch, Windows runner availability, compiler toolchains or successful builds for individual languages.</div>
+    <p class="status-meta" id="checked-at">Last checked: checking…</p>
+    <p><a href="./contact.html">Report a problem ↗</a> · <a href="./security.html">Security information ↗</a></p>
+  </main>
+  <footer class="site-footer"><div class="footer-inner">
+    <a class="brand footer-brand" href="./"><img class="brand-logo" src="./static/execify-logo.svg" alt=""><span>EXEcify</span></a>
+    <a href="./about.html">About</a><a href="./security.html">Security</a><a href="./docs.html">Documentation</a><a href="./status.html">Status</a><a href="./downloads.html">Downloads</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><span>© 2026 EXECIFY</span>
+  </div></footer>
+  <script>
+    (async function(){
+      const pill=document.getElementById('api-status');
+      const detail=document.getElementById('api-detail');
+      const stamp=document.getElementById('checked-at');
+      const now=new Date();
+      try{
+        const response=await fetch('https://py2exe-online.martgeluk11.workers.dev/health',{cache:'no-store',headers:{'Accept':'application/json'}});
+        const data=await response.json();
+        if(response.ok&&data.status==='ok'){
+          pill.textContent='RESPONDING';pill.classList.add('ok');
+          detail.textContent='Worker responded and the KV storage binding answered a read check.';
+        }else{
+          pill.textContent='DEGRADED';pill.classList.add('bad');
+          detail.textContent='The health check returned an unavailable status.';
+        }
+      }catch(error){
+        pill.textContent='UNAVAILABLE';pill.classList.add('bad');
+        detail.textContent='The health endpoint could not be reached from this browser.';
+      }
+      stamp.textContent='Last checked: '+now.toLocaleString()+' · Refresh the page to run the check again.';
+    })();
+  </script>
+</body>
+</html>
