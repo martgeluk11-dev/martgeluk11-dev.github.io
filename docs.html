@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8faff">
+  <meta name="description" content="Documentation for EXEcify: supported languages, project uploads, build options, limits and troubleshooting.">
+  <link rel="canonical" href="https://martgeluk11-dev.github.io/docs.html">
+  <title>Documentation — EXEcify</title>
+  <link rel="icon" href="./static/execify-logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/style.css?v=19">
+  <style>
+    .docs-wrap{width:min(900px,calc(100% - 40px));margin:76px auto 100px}
+    .docs-kicker{font:500 11px 'DM Mono',monospace;letter-spacing:.13em;color:#64748b;text-transform:uppercase}
+    .docs-wrap h1{font-size:clamp(38px,6vw,64px);letter-spacing:-.055em;line-height:1.02;margin:18px 0}
+    .docs-lead{font-size:18px;line-height:1.7;max-width:740px;color:var(--muted,#64748b)}
+    .docs-section{border-top:1px solid var(--line);padding:26px 0}.docs-section h2{font-size:22px;margin:0 0 12px}
+    .docs-section p,.docs-section li{line-height:1.8;color:var(--muted)}
+    .docs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .docs-item{border:1px solid var(--line);background:var(--white);border-radius:13px;padding:16px}
+    .docs-item strong{display:block;margin-bottom:5px}.docs-item span{color:var(--muted);font-size:13px}
+    .docs-note{border-left:3px solid var(--blue);padding:14px 18px;background:var(--blue-pale);border-radius:0 12px 12px 0;line-height:1.7;font-size:14px}
+    @media(max-width:600px){.docs-grid{grid-template-columns:1fr}.docs-wrap{margin-top:48px}}
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="./"><img class="brand-logo" src="./static/execify-logo.svg" alt="EXEcify logo"><span>EXEcify</span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="./">Home</a><a href="./about.html">About</a><a href="./security.html">Security</a><a href="./status.html">Status</a></nav>
+    <a class="header-cta" href="./#builder">Start converting <span>↗</span></a>
+  </div></header>
+  <main class="docs-wrap">
+    <div class="docs-kicker">GUIDES / GETTING STARTED</div>
+    <h1>Documentation.</h1>
+    <p class="docs-lead">A practical guide to preparing a project, choosing its entry point and understanding what EXEcify builds.</p>
+    <section class="docs-section"><h2>Supported project types</h2>
+      <div class="docs-grid">
+        <div class="docs-item"><strong>Python</strong><span>.py projects and requirements.txt dependencies.</span></div>
+        <div class="docs-item"><strong>JavaScript / Node.js</strong><span>Node projects using package.json.</span></div>
+        <div class="docs-item"><strong>TypeScript</strong><span>TypeScript projects using package.json and build configuration.</span></div>
+        <div class="docs-item"><strong>C / C++</strong><span>CMake projects or supported simple source projects.</span></div>
+        <div class="docs-item"><strong>C# / .NET</strong><span>.NET projects using project files and NuGet restore.</span></div>
+        <div class="docs-item"><strong>Go</strong><span>Go projects using go.mod or supported source entry points.</span></div>
+        <div class="docs-item"><strong>Rust</strong><span>Cargo projects using Cargo.toml.</span></div>
+        <div class="docs-item"><strong>Java</strong><span>Java projects using supported source/build layouts.</span></div>
+      </div>
+    </section>
+    <section class="docs-section"><h2>Prepare your project</h2>
+      <ol><li>Keep the source files, assets and dependency manifests together in one project folder.</li><li>Include dependency files such as requirements.txt, package.json, go.mod, Cargo.toml or a .NET project file when your project needs them.</li><li>Choose the correct main or entry file when prompted. For projects with a build manifest, include the manifest in the upload.</li><li>Remove unnecessary generated folders, caches and files that the application does not need.</li></ol>
+    </section>
+    <section class="docs-section"><h2>Build limits</h2>
+      <ul><li>Maximum 150 files per project.</li><li>Maximum total input size: 80 MB.</li><li>Maximum generated output size: 80 MB.</li><li>Build jobs have a time limit and may fail if dependencies cannot be installed or the project needs unsupported native components.</li></ul>
+      <p>These are current service limits and may change. If a build fails, check the error message and confirm the same project can be built with its normal development tools.</p>
+    </section>
+    <section class="docs-section"><h2>Output and Windows warnings</h2>
+      <p>EXEcify creates Windows build output; it does not certify that the uploaded code or generated executable is safe. EXEcify does not currently digitally sign generated executables. Windows Defender or SmartScreen may show warnings for unsigned or unfamiliar files.</p>
+      <p>Use the SHA-256 checksum shown after a successful download to identify the exact file. A matching checksum proves file integrity relative to that checksum; it does not prove that a file is harmless.</p>
+    </section>
+    <section class="docs-section"><h2>Privacy and security</h2>
+      <div class="docs-note"><strong>Do not upload confidential information.</strong> Never include passwords, API keys, private keys, personal data or files you are not comfortable sharing with EXEcify and its service providers.</div>
+      <p>Read the <a href="./privacy.html">privacy information</a> and <a href="./security.html">Security Center</a> before uploading. Temporary build data is processed by third-party infrastructure providers as described on those pages.</p>
+    </section>
+    <section class="docs-section"><h2>Troubleshooting</h2>
+      <ul><li><strong>Entry file error:</strong> make sure the selected entry file exists in the uploaded project and matches the chosen language.</li><li><strong>Missing dependency:</strong> include the project's dependency manifest and ensure package versions are compatible with the build environment.</li><li><strong>Build timeout:</strong> try removing unused dependencies and generated files. Very large or complex projects may exceed the time limit.</li><li><strong>Unsupported project:</strong> native modules, platform-specific dependencies and unusual build systems may not be supported.</li></ul>
+      <p>For help, visit the <a href="./contact.html">contact page</a>. Include the language and error message, but never send secrets or private source files in a public issue.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner">
+    <a class="brand footer-brand" href="./"><img class="brand-logo" src="./static/execify-logo.svg" alt=""><span>EXEcify</span></a>
+    <a href="./about.html">About</a><a href="./security.html">Security</a><a href="./docs.html">Documentation</a><a href="./status.html">Status</a><a href="./downloads.html">Downloads</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><span>© 2026 EXECIFY</span>
+  </div></footer>
+</body>
+</html>
