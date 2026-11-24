@@ -35,7 +35,7 @@
   <main class="docs-wrap">
     <div class="docs-kicker">GUIDES / GETTING STARTED</div>
     <h1>Documentation.</h1>
-    <p class="docs-lead">A practical guide to preparing a project, choosing its entry point and understanding what EXEcify builds.</p>
+    <p class="docs-lead">How to prepare a project, choose its entry file and understand the output EXEcify creates.</p>
     <section class="docs-section"><h2>Supported project types</h2>
       <div class="docs-grid">
         <div class="docs-item"><strong>Python</strong><span>.py projects and requirements.txt dependencies.</span></div>
@@ -49,11 +49,11 @@
       </div>
     </section>
     <section class="docs-section"><h2>Prepare your project</h2>
-      <ol><li>Keep the source files, assets and dependency manifests together in one project folder.</li><li>Include dependency files such as requirements.txt, package.json, go.mod, Cargo.toml or a .NET project file when your project needs them.</li><li>Choose the correct main or entry file when prompted. For projects with a build manifest, include the manifest in the upload.</li><li>Remove unnecessary generated folders, caches and files that the application does not need.</li></ol>
+      <ol><li>Put the source files, assets and dependency files in the same project folder.</li><li>If your project uses dependencies, include its manifest, such as requirements.txt, package.json, go.mod, Cargo.toml or a .NET project file.</li><li>When asked, select the correct entry file. If the project uses a build manifest, include it in the upload.</li><li>Remove generated folders, caches and files that the app does not use.</li></ol>
     </section>
     <section class="docs-section"><h2>Build limits</h2>
       <ul><li>Maximum 150 files per project.</li><li>Maximum total input size: 80 MB.</li><li>Maximum generated output size: 80 MB.</li><li>Build jobs have a time limit and may fail if dependencies cannot be installed or the project needs unsupported native components.</li></ul>
-      <p>These are current service limits and may change. If a build fails, check the error message and confirm the same project can be built with its normal development tools.</p>
+      <p>These are the current upload and output limits. If a build fails, read the error message and check whether the project builds with its usual development tools.</p>
     </section>
     <section class="docs-section"><h2>Output and Windows warnings</h2>
       <p>EXEcify creates Windows build output; it does not certify that the uploaded code or generated executable is safe. EXEcify does not currently digitally sign generated executables. Windows Defender or SmartScreen may show warnings for unsigned or unfamiliar files.</p>
@@ -65,7 +65,7 @@
     </section>
     <section class="docs-section"><h2>Troubleshooting</h2>
       <ul><li><strong>Entry file error:</strong> make sure the selected entry file exists in the uploaded project and matches the chosen language.</li><li><strong>Missing dependency:</strong> include the project's dependency manifest and ensure package versions are compatible with the build environment.</li><li><strong>Build timeout:</strong> try removing unused dependencies and generated files. Very large or complex projects may exceed the time limit.</li><li><strong>Unsupported project:</strong> native modules, platform-specific dependencies and unusual build systems may not be supported.</li></ul>
-      <p>For help, visit the <a href="./contact.html">contact page</a>. Include the language and error message, but never send secrets or private source files in a public issue.</p>
+      <p>If you need help, visit the <a href="./contact.html">contact page</a>. Include the language and error message, but never send secrets or private source files in a public issue.</p>
     </section>
   </main>
   <footer class="site-footer"><div class="footer-inner">
