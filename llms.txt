@@ -1,0 +1,30 @@
+# EXEcify
+
+> EXEcify is an independent browser-based project that builds Windows executables from supported source-code projects.
+
+## Primary pages
+- [Home](https://martgeluk11-dev.github.io/): Upload a project and configure a Windows build.
+- [Documentation](https://martgeluk11-dev.github.io/docs.html): Supported languages, project preparation, limits and troubleshooting.
+- [Security Center](https://martgeluk11-dev.github.io/security.html): Upload processing, storage, deletion and known security limitations.
+- [Privacy](https://martgeluk11-dev.github.io/privacy.html): Data handling and third-party service information.
+- [Service status](https://martgeluk11-dev.github.io/status.html): Automated website and Worker/KV health checks.
+- [Downloads and verification](https://martgeluk11-dev.github.io/downloads.html): SHA-256 verification and Windows warning information.
+- [About](https://martgeluk11-dev.github.io/about.html): Project scope and independence.
+- [Contact](https://martgeluk11-dev.github.io/contact.html): Support and security reporting.
+
+## Capabilities
+- Supported project types include Python, JavaScript/Node.js, TypeScript, C, C++, C#/.NET, Go, Rust and Java.
+- Projects can include multiple source files, assets and dependency manifests.
+- Current published limits: 150 files, 80 MB total input and 80 MB generated output.
+- Builds run on temporary Windows GitHub Actions runners. Upload handling and job state are managed by a Cloudflare Worker.
+
+## Important limitations
+- EXEcify is an early-stage independent project, not affiliated with Microsoft or GitHub.
+- Builds are not a security scan or safety certification. Generated executables are not currently digitally signed by EXEcify.
+- The build environment is not a dedicated micro-VM per job, and outbound network access is not fully disabled.
+- Do not upload confidential information, passwords, API keys, private keys or personal data.
+- The status page checks Worker responsiveness and its KV binding; it does not verify GitHub Actions runner availability or successful builds for every language.
+
+## Source repositories
+- Frontend: https://github.com/martgeluk11-dev/martgeluk11-dev.github.io
+- Build backend: https://github.com/martgeluk11-dev/PY2EXEONLINE
