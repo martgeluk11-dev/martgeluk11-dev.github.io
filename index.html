@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./static/style.css?v=18">
+  <link rel="stylesheet" href="./static/style.css?v=19">
   <style>
     .mobile-320-ad { display:none; }
     @media (max-width:600px) {
@@ -20,6 +20,36 @@
     }
   </style>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://martgeluk11-dev.github.io/#organization",
+        "name": "EXEcify",
+        "url": "https://martgeluk11-dev.github.io/",
+        "logo": "https://martgeluk11-dev.github.io/static/execify-logo.svg",
+        "sameAs": [
+          "https://github.com/martgeluk11-dev/martgeluk11-dev.github.io",
+          "https://github.com/martgeluk11-dev/PY2EXEONLINE"
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://martgeluk11-dev.github.io/#software",
+        "name": "EXEcify",
+        "url": "https://martgeluk11-dev.github.io/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web browser; generates Windows executables",
+        "description": "A browser-based service for building Windows executables from supported source-code projects.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@id": "https://martgeluk11-dev.github.io/#organization" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -33,7 +63,7 @@
         <a href="#features">Features</a>
         <a href="./about.html">About</a>
         <a href="./security.html">Security</a>
-        <a href="./changelog.html">Changelog</a>
+        <a href="./docs.html">Docs</a><a href="./status.html">Status</a>
       </nav>
       <a class="header-cta" href="#builder">Start converting <span>↗</span></a>
     </div>
@@ -320,7 +350,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner"><a class="brand footer-brand" href="/"><img class="brand-logo" src="./static/execify-logo.svg" alt="EXEcify logo"><span>EXEcify</span></a><span>CODE TO WINDOWS.</span><a href="./about.html">About</a><a href="./security.html">Security</a><a href="./changelog.html">Changelog</a><a href="./downloads.html">Downloads</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><span>© 2026 EXECIFY</span></div>
+    <div class="footer-inner"><a class="brand footer-brand" href="/"><img class="brand-logo" src="./static/execify-logo.svg" alt="EXEcify logo"><span>EXEcify</span></a><span>CODE TO WINDOWS.</span><a href="./about.html">About</a><a href="./security.html">Security</a><a href="./docs.html">Docs</a><a href="./status.html">Status</a><a href="./downloads.html">Downloads</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><span>© 2026 EXECIFY</span></div>
   </footer>
   <script>
     (function(){
