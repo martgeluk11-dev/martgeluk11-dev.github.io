@@ -293,14 +293,50 @@
       </div>
     </section>
 
+    <section class="share-section" aria-labelledby="share-title">
+      <div class="share-inner">
+        <div class="share-copy">
+          <span class="share-kicker">SPREAD THE WORD</span>
+          <h2 id="share-title">Share EXEcify</h2>
+          <p>Know someone building Windows apps? Send them the link.</p>
+        </div>
+        <div class="share-options" aria-label="Share EXEcify">
+          <a class="share-option" href="https://wa.me/?text=Build%20Windows%20EXE%20files%20online%20with%20EXEcify%3A%20https%3A%2F%2Fmartgeluk11-dev.github.io%2F" target="_blank" rel="noopener noreferrer"><b>WA</b><span>WhatsApp</span></a>
+          <a class="share-option" href="https://t.me/share/url?url=https%3A%2F%2Fmartgeluk11-dev.github.io%2F&text=Build%20Windows%20EXE%20files%20online%20with%20EXEcify" target="_blank" rel="noopener noreferrer"><b>TG</b><span>Telegram</span></a>
+          <a class="share-option" href="https://www.reddit.com/submit?url=https%3A%2F%2Fmartgeluk11-dev.github.io%2F&title=EXEcify%20%E2%80%94%20Build%20Windows%20EXE%20Files%20Online" target="_blank" rel="noopener noreferrer"><b>r/</b><span>Reddit</span></a>
+          <a class="share-option" href="https://x.com/intent/post?url=https%3A%2F%2Fmartgeluk11-dev.github.io%2F&text=Build%20Windows%20EXE%20files%20online%20with%20EXEcify" target="_blank" rel="noopener noreferrer"><b>𝕏</b><span>X</span></a>
+          <a class="share-option" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmartgeluk11-dev.github.io%2F" target="_blank" rel="noopener noreferrer"><b>f</b><span>Facebook</span></a>
+          <a class="share-option" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmartgeluk11-dev.github.io%2F" target="_blank" rel="noopener noreferrer"><b>in</b><span>LinkedIn</span></a>
+          <a class="share-option" href="mailto:?subject=EXEcify%20%E2%80%94%20Build%20Windows%20EXE%20Files%20Online&body=Check%20out%20EXEcify%3A%20https%3A%2F%2Fmartgeluk11-dev.github.io%2F"><b>@</b><span>Email</span></a>
+          <button class="share-option share-copy" id="copy-share-link" type="button"><b>↗</b><span>Copy link</span></button>
+        </div>
+        <p class="share-feedback" id="share-feedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
     <section class="closing-banner">
       <div class="closing-banner-inner"><div><span class="closing-kicker">READY TO BUILD</span><h2>Build your app<br>from your code.</h2></div><a href="#builder" class="closing-cta">Start building <span>↗</span></a><div class="closing-watermark">Py<span>.</span></div></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner"><a class="brand footer-brand" href="/"><img class="brand-logo" src="./static/execify-logo.svg" alt="EXEcify logo"><span>EXEcify</span></a><span>CODE TO WINDOWS.</span><a href="./about.html">About</a><a href="./security.html">Security</a><a href="./changelog.html">Changelog</a><a href="./downloads.html">Downloads</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><a href="https://x.com/intent/post?url=https%3A%2F%2Fmartgeluk11-dev.github.io%2F&text=Build%20Windows%20apps%20online%20with%20EXEcify" target="_blank" rel="noopener noreferrer">Share on X</a><a href="https://www.reddit.com/submit?url=https%3A%2F%2Fmartgeluk11-dev.github.io%2F&title=EXEcify%20%E2%80%94%20Online%20Windows%20EXE%20Builder" target="_blank" rel="noopener noreferrer">Share on Reddit</a><span>© 2026 EXECIFY</span></div>
+    <div class="footer-inner"><a class="brand footer-brand" href="/"><img class="brand-logo" src="./static/execify-logo.svg" alt="EXEcify logo"><span>EXEcify</span></a><span>CODE TO WINDOWS.</span><a href="./about.html">About</a><a href="./security.html">Security</a><a href="./changelog.html">Changelog</a><a href="./downloads.html">Downloads</a><a href="./contact.html">Contact</a><a href="./privacy.html">Privacy</a><span>© 2026 EXECIFY</span></div>
   </footer>
+  <script>
+    (function(){
+      const button=document.getElementById('copy-share-link');
+      const feedback=document.getElementById('share-feedback');
+      if(!button||!feedback)return;
+      button.addEventListener('click',async()=>{
+        try{
+          await navigator.clipboard.writeText('https://martgeluk11-dev.github.io/');
+          feedback.textContent='Link copied to clipboard.';
+        }catch(_){
+          feedback.textContent='Copy unavailable. You can copy the address from your browser.';
+        }
+      });
+    })();
+  </script>
   <script src="./static/app.js?v=11"></script>
   <script data-cfasync="false" src="https://bauval.org/14/32b20b9e6ec0e0db647e18b7d28aa039"></script>
 </body>
