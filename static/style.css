@@ -514,3 +514,28 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
   .faq-item::details-content,.faq-item summary:after{transition:none}
   .faq-item[open] .faq-answer{animation:none}
 }
+
+
+/* Dedicated share area */
+.share-section{padding:64px 0;background:#f5f7fb;border-top:1px solid #e8edf5}
+.share-inner{width:min(1120px,calc(100% - 64px));margin:0 auto}
+.share-kicker{font:10px var(--mono);letter-spacing:1px;color:#73819a}
+.share-copy h2{margin:10px 0 8px;color:#202e4a;font-size:clamp(30px,4vw,42px);font-weight:800;letter-spacing:-.045em}
+.share-copy p{margin:0;color:#718098;font-size:13px;line-height:1.7}
+.share-options{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;margin-top:26px}
+.share-option{min-width:0;min-height:82px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;border:1px solid #e0e6f0;border-radius:9px;background:#fff;color:#263653;text-decoration:none;font:600 11px Manrope, sans-serif;cursor:pointer;transition:transform .18s,border-color .18s,background .18s}
+.share-option:hover{transform:translateY(-3px);border-color:#9aafd4;background:#fbfcff}
+.share-option b{width:30px;height:30px;display:grid;place-items:center;border-radius:8px;background:#edf2fa;color:#263f70;font:700 14px Manrope,sans-serif}
+.share-feedback{min-height:16px;margin:12px 0 0;color:#52688d;font:11px var(--mono)}
+@media(prefers-color-scheme:dark){
+ .share-section{background:#111a2a;border-color:#2b354b}
+ .share-kicker{color:#9ba9c0}
+ .share-copy h2{color:#edf2ff}
+ .share-copy p{color:#a5b1c8}
+ .share-option{background:#1b263a;border-color:#35425a;color:#e4ebfa}
+ .share-option:hover{background:#222f47;border-color:#60769c}
+ .share-option b{background:#2b3a55;color:#dce7fb}
+ .share-feedback{color:#a9bfeb}
+}
+@media(max-width:850px){.share-options{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:480px){.share-section{padding:45px 0}.share-inner{width:calc(100% - 38px)}.share-options{gap:8px}.share-option{min-height:75px;font-size:10px}}
