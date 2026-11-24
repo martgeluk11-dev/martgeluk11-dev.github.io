@@ -1,6 +1,6 @@
 # EXEcify
 
-> EXEcify is an independent browser-based project that builds Windows executables from supported source-code projects.
+> EXEcify is an independent web tool that builds Windows executables from supported coding projects.
 
 ## Primary pages
 - [Home](https://martgeluk11-dev.github.io/): Upload a project and configure a Windows build.
@@ -14,13 +14,13 @@
 
 ## Capabilities
 - Supported project types include Python, JavaScript/Node.js, TypeScript, C, C++, C#/.NET, Go, Rust and Java.
-- Projects can include multiple source files, assets and dependency manifests.
+- Projects can contain multiple source files, assets and dependency files.
 - Current published limits: 150 files, 80 MB total input and 80 MB generated output.
 - Builds run on temporary Windows GitHub Actions runners. Upload handling and job state are managed by a Cloudflare Worker.
 
 ## Important limitations
 - EXEcify is an early-stage independent project, not affiliated with Microsoft or GitHub.
-- Builds are not a security scan or safety certification. Generated executables are not currently digitally signed by EXEcify.
+- A completed build does not scan the project for malware or certify that the output is safe. Generated executables are not currently digitally signed by EXEcify.
 - The build environment is not a dedicated micro-VM per job, and outbound network access is not fully disabled.
 - Do not upload confidential information, passwords, API keys, private keys or personal data.
 - The status page checks Worker responsiveness and its KV binding; it does not verify GitHub Actions runner availability or successful builds for every language.
