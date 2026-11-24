@@ -34,12 +34,12 @@
   <main class="policy-wrap">
     <div class="policy-kicker">TRANSPARENCY / DATA HANDLING</div>
     <h1>Privacy & security.</h1>
-    <p class="policy-lead">Your project files are processed to create a Windows build. This page explains which services handle those files, how they are protected and when temporary data is removed.</p>
-    <div class="policy-note"><strong>In short:</strong> uploaded file contents and generated build files are encrypted in temporary storage. Source uploads are deleted when a build finishes. Downloaded build files are deleted after the download response completes. Temporary KV data also has a 24-hour expiry as a fallback.</div>
+    <p class="policy-lead">EXEcify sends your project to external services to build a Windows app. This page lists those services, explains what data they handle and describes when temporary files are deleted.</p>
+    <div class="policy-note"><strong>In short:</strong> EXEcify encrypts uploaded file contents and build output before storing them temporarily. Source uploads are deleted when a build finishes. Output files are deleted after download. A 24-hour expiry is used as a fallback.</div>
 
     <section class="policy-section">
       <h2>Before uploading: keep sensitive information out</h2>
-      <p>Do not upload files containing confidential information or sensitive data. This includes passwords, API keys, access tokens, private keys, certificates, personal data, customer information and proprietary files you are not authorised to share. Remove secrets from your project before uploading. Uploaded project files are processed by EXEcify and the service providers described below; encryption and automatic deletion do not make uploading confidential information risk-free.</p>
+      <p>Do not upload confidential or sensitive files. This includes passwords, API keys, access tokens, private keys, certificates, personal data, customer information and files you are not allowed to share. Remove secrets before uploading. EXEcify and its service providers process the files you submit. Encryption and automatic deletion do not make confidential uploads risk-free.</p>
     </section>
 
     <section class="policy-section">
@@ -55,8 +55,8 @@
 
     <section class="policy-section">
       <h2>2. Storage and encryption</h2>
-      <p>Uploaded file contents and generated output chunks are encrypted with AES-256-GCM before they are written to Workers KV. The encryption key is held as a Cloudflare Worker secret and is not included in the website or public source files. Transfers use HTTPS.</p>
-      <p>Job metadata needed to operate a build (such as status, file names and build settings) is stored separately and is not encrypted in the same way. Do not upload passwords, API keys, private certificates or other secrets inside a project.</p>
+      <p>EXEcify encrypts uploaded file contents and generated output chunks with AES-256-GCM before storing them in Workers KV. The encryption key is stored as a Cloudflare Worker secret, not in the website or public source code. Data transfers use HTTPS.</p>
+      <p>Some job details, such as status, file names and build settings, are stored separately and are not encrypted in the same way. Do not include passwords, API keys, certificates or other secrets in your project.</p>
     </section>
 
     <section class="policy-section">
@@ -68,28 +68,28 @@
         <li>KV entries have a 24-hour expiry as a fallback for abandoned jobs or interrupted cleanup.</li>
         <li>The temporary Windows runner workspace is removed by the build script, and GitHub-hosted runners are temporary.</li>
       </ul>
-      <p>Deletion from the active KV namespace does not mean that every infrastructure backup or provider-level record is instantly erased. Provider retention and operational records are governed by their own policies.</p>
+      <p>Removing data from the active KV namespace does not instantly remove every backup or provider record. Cloudflare and GitHub handle their own operational logs and retention under their policies.</p>
     </section>
 
     <section class="policy-section">
       <h2>4. Build isolation and limitations</h2>
-      <p>Each build runs in a GitHub-hosted Windows runner rather than on a permanent EXEcify server. The workflow has a 25-minute overall timeout, individual build steps have timeouts, and uploads, ZIP expansion and outputs have size limits.</p>
-      <p>EXEcify does not currently enforce a custom micro-VM per build or fully disable outbound network access. Dependency installation requires network access, so untrusted project code and build scripts may run while the runner is online. Do not upload projects you do not trust, and do not treat the service as a secure environment for confidential or highly sensitive code.</p>
+      <p>Each build runs on a temporary GitHub-hosted Windows runner. The workflow has a 25-minute time limit, individual steps have their own limits, and uploads, extracted ZIP files and outputs are size-limited.</p>
+      <p>EXEcify does not currently run each build in its own micro-VM or block all outbound network access. Builds need network access to install dependencies, and project code or build scripts may run while the runner is online. Do not upload code you do not trust or use EXEcify for confidential projects.</p>
     </section>
 
     <section class="policy-section">
       <h2>5. Logs and source code</h2>
-      <p>Raw compiler stdout and stderr are not returned as build error messages. Persistent Worker invocation logs and traces are disabled. The EXEcify source code is publicly available for inspection in the <a href="https://github.com/martgeluk11-dev/PY2EXEONLINE">backend repository</a> and <a href="https://github.com/martgeluk11-dev/martgeluk11-dev.github.io">website repository</a>.</p>
+      <p>EXEcify does not show raw compiler output in build error messages. Persistent Worker invocation logs and traces are disabled. The source code is public: <a href="https://github.com/martgeluk11-dev/PY2EXEONLINE">backend repository</a> and <a href="https://github.com/martgeluk11-dev/martgeluk11-dev.github.io">website repository</a>.</p>
     </section>
 
     <section class="policy-section">
       <h2>Independent review status</h2>
-      <p>We have published a preliminary, AI-assisted static code review of selected backend components. It is not an independent third-party audit, penetration test or security certification. The report lists observed controls, identified issues and unverified areas. <a href="https://github.com/martgeluk11-dev/PY2EXEONLINE/blob/main/SECURITY_REVIEW.md">Read the security review on GitHub</a>.</p>
+      <p>A preliminary static review of selected backend code is available. AI assistance was used, and the review was not an independent audit, penetration test or certification. The report lists the controls and issues found, along with areas that were not verified. <a href="https://github.com/martgeluk11-dev/PY2EXEONLINE/blob/main/SECURITY_REVIEW.md">Read the security review on GitHub</a>.</p>
     </section>
 
     <section class="policy-section">
       <h2>6. Antivirus warnings and signatures</h2>
-      <p>Some packaging tools can produce executables that trigger antivirus false positives. EXEcify does not currently digitally sign generated executables. A successful build is not a malware scan or a guarantee that the output is safe; review your own source code and dependencies before running or distributing the result.</p>
+      <p>Some packaging tools produce files that antivirus software may flag. EXEcify does not digitally sign generated EXEs. A successful build does not scan the file or prove it is safe. Check your code and dependencies before running or sharing the result.</p>
     </section>
     <p class="policy-updated">Last updated: 23 November 2026</p>
   </main>
