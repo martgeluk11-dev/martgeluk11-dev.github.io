@@ -36,12 +36,12 @@
   <main class="status-wrap">
     <div class="status-kicker">OPERATIONS / LIVE CHECKS</div>
     <h1>Service status.</h1>
-    <p class="status-lead">A transparent view of the checks EXEcify can perform automatically. This page does not claim that every language build or download path is currently working.</p>
+    <p class="status-lead">This page shows the checks that run when you open it. A passing check does not mean every language or build option is working.</p>
     <div class="status-card" aria-live="polite">
-      <div class="status-row"><div><div class="status-name">Website</div><div class="status-detail">This page loaded successfully in your browser.</div></div><span class="status-pill ok">RESPONDING</span></div>
+      <div class="status-row"><div><div class="status-name">Website</div><div class="status-detail">Your browser loaded this page.</div></div><span class="status-pill ok">RESPONDING</span></div>
       <div class="status-row"><div><div class="status-name">Build API & storage</div><div class="status-detail" id="api-detail">Checking the public health endpoint…</div></div><span class="status-pill" id="api-status">CHECKING</span></div>
     </div>
-    <div class="status-note"><strong>What this check does not prove:</strong> the health endpoint checks that the Worker responds and can read from its KV binding. It does not test GitHub Actions dispatch, Windows runner availability, compiler toolchains or successful builds for individual languages.</div>
+    <div class="status-note"><strong>What this check does not cover:</strong> the health endpoint checks that the Worker responds and can read from its KV binding. It does not test GitHub Actions dispatch, Windows runner availability, compiler toolchains or successful builds for individual languages.</div>
     <p class="status-meta" id="checked-at">Last checked: checking…</p>
     <p><a href="./contact.html">Report a problem ↗</a> · <a href="./security.html">Security information ↗</a></p>
   </main>
