@@ -228,7 +228,8 @@ $("build").addEventListener("click",async()=>{
   if(total>80*1024*1024){setStatus("Your project is larger than 80 MB.",true);return;}
   const captcha=window.turnstile?.getResponse?.();
   if(!captcha){setStatus("Please complete the security check first.",true);return;}
-  $("build-verification").hidden=true;\n  const button=$("build");button.disabled=true;button.querySelector("span").textContent="Uploading project…";
+  $("build-verification").hidden=true;
+  const button=$("build");button.disabled=true;button.querySelector("span").textContent="Uploading project…";
   resetProgress();
   try{
     if(API_BASE.includes("YOUR-WORKER"))throw new Error("The build service URL has not been configured yet.");
