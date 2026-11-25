@@ -130,7 +130,7 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
 .status{font:10px var(--mono);line-height:1.65;white-space:pre-wrap;color:#267d60;margin-top:0}
 .status:not(:empty){margin-top:12px}.status.error{color:#c03f56}
 .progress{height:5px;background:#e7edf8;margin-top:10px;display:none;overflow:hidden;border-radius:6px}.progress.show{display:block}
-.progress i{display:block;width:0;height:100%;background:var(--blue);border-radius:6px;transition:width .42s cubic-bezier(.22,.8,.25,1)}
+.progress i{display:block;width:0;height:100%;background:var(--blue);border-radius:6px;transition:transform .35s cubic-bezier(.22,.8,.25,1)}
 .builder-footnote{display:flex;align-items:center;gap:8px;margin-top:15px;color:#9aa5b7;font-size:9px}.builder-footnote span{color:#8ca3f3;font-size:14px}
 .how-section{padding:103px 0 110px;background:#fff}
 .how-heading{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:37px}
@@ -325,7 +325,7 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
 .wizard-builder{display:block;max-width:900px;margin-inline:auto}
 .wizard-progress{padding:25px 38px 0;background:var(--white,#fff)}
 .wizard-progress-track{height:4px;background:#e8edf6;border-radius:10px;overflow:hidden}
-.wizard-progress-track span{display:block;width:50%;height:100%;background:var(--blue);border-radius:10px;transition:width .25s ease}
+.wizard-progress-track span{display:block;width:50%;height:100%;background:var(--blue);border-radius:10px;transition:transform .25s ease}
 .wizard-progress-label{display:flex;justify-content:space-between;margin-top:10px;color:#8491a7;font:9px var(--mono);letter-spacing:.08em}
 .wizard-panel{min-width:0}
 .wizard-panel[hidden]{display:none!important}
