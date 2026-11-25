@@ -559,3 +559,78 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
 .wizard-builder .field>small{font-size:13px;line-height:1.6;margin-top:9px}
 .wizard-builder .icon-browse{font-size:11px}
 .wizard-builder .field-index{display:none}
+
+
+/* Visual cleanup: remove decorative micro-labels, numbering and neon effects */
+.hero-kicker,
+.section-kicker,
+.closing-kicker,
+.info-kicker,
+.policy-kicker,
+.status-kicker {
+  display: none !important;
+}
+
+.step-number,
+.feature-number,
+.info-step-top > span:first-child,
+.visual-top-label > span:last-child {
+  display: none !important;
+}
+
+.builder-step { gap: 0 !important; }
+.wizard-builder .builder-step { gap: 0 !important; }
+.visual-top-label { justify-content: flex-start; }
+
+/* Keep small interface labels readable without the code-editor aesthetic. */
+.hero-caption,
+.visual-top-label,
+.visual-bottom,
+.code-card-foot,
+.exe-app-meta,
+.visual-sticker,
+.build-explainer-label,
+.verification-heading,
+.verification-label,
+.info-date,
+.policy-updated,
+.status-meta,
+.status-pill,
+.field > label,
+.field > small,
+.upload-file,
+.site-footer .footer-inner > span {
+  font-family: var(--display, Arial, sans-serif) !important;
+  letter-spacing: 0 !important;
+}
+
+/* Remove colored halos and decorative glow shadows. */
+.visual-glow,
+.visual-orbit {
+  display: none !important;
+}
+.primary-cta,
+.primary-cta:hover,
+.header-cta,
+.header-cta:hover,
+.closing-cta,
+.closing-cta:hover,
+.visual-code-card,
+.visual-exe-card,
+.visual-sticker,
+.conversion-path b,
+.upload-cloud,
+.kicker-dot {
+  box-shadow: none !important;
+  filter: none !important;
+}
+.primary-cta,
+.primary-cta:hover {
+  background: #315ce8 !important;
+  border-color: #315ce8 !important;
+}
+.visual-code-card,
+.visual-exe-card,
+.visual-sticker {
+  border-color: var(--line, #dfe5ef) !important;
+}
