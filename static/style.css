@@ -657,3 +657,157 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
   font:500 12px var(--display,Arial,sans-serif);
   letter-spacing:0;
 }
+
+
+/* Impeccable quality pass — clearer hierarchy, accessible controls, quieter surfaces */
+:root{
+  --execify-action:#244fc4;
+  --execify-action-hover:#1c3f9f;
+}
+
+/* Flat, deliberate surfaces instead of nested floating cards. */
+.wizard-builder{
+  border:0!important;
+  box-shadow:none!important;
+  border-radius:16px;
+  overflow:hidden;
+}
+.upload-warning{
+  display:flex;
+  align-items:flex-start;
+  gap:13px;
+  margin:0 0 25px;
+  padding:0;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:#49300b!important;
+  font-size:14px;
+  line-height:1.7;
+}
+.upload-warning:before{
+  flex:0 0 30px;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:#f2d18b!important;
+  color:#49300b!important;
+  font-size:17px;
+}
+.upload-warning strong{
+  margin:0 0 3px;
+  font-size:14px;
+}
+
+/* Strong contrast on every primary action, in both color schemes. */
+.header-cta,.header-cta:hover,
+.wizard-next,.wizard-next:hover,
+.closing-cta,.closing-cta:hover,
+.conversion-path b{
+  background:var(--execify-action)!important;
+  border-color:var(--execify-action)!important;
+  color:#fff!important;
+  box-shadow:none!important;
+}
+.header-cta,.wizard-next,.closing-cta{font-size:12px}
+.header-cta span,.closing-cta span{color:#fff!important}
+.header-cta:hover,.wizard-next:hover,.closing-cta:hover{
+  background:var(--execify-action-hover)!important;
+  border-color:var(--execify-action-hover)!important;
+}
+.wizard-next{
+  min-height:48px;
+  padding:8px 18px;
+  line-height:1.35;
+}
+.wizard-next:disabled{
+  background:#52658f!important;
+  border-color:#52658f!important;
+  color:#fff!important;
+  opacity:1;
+}
+.conversion-path b{font-size:17px}
+
+/* Bring every meaningful label and instruction above the readability floor. */
+.hero-caption{font-size:11px!important;color:#64748b!important}
+.exe-window-bar span{font:500 11px var(--display,Arial,sans-serif)!important;color:#64748b!important}
+.exe-app-meta{font-size:11px!important;color:#64748b!important}
+.visual-sticker{font-size:11px!important}
+.visual-bottom{font-size:11px!important;color:#526583!important}
+.upload-file{font:600 11px var(--display,Arial,sans-serif)!important;padding:4px 6px}
+.folder-button{font-size:12px!important}
+.summary-top{font-size:12px!important}
+.summary-top button{font-size:12px!important}
+#entry{font-size:13px!important}
+.wizard-builder .segments button b{font-size:12px!important}
+.wizard-builder .segments button small{font-size:12px!important}
+.wizard-builder .field em{font-size:11px!important}
+.ico-badge{font:600 11px var(--display,Arial,sans-serif)!important}
+.icon-picker b{font:500 12px var(--display,Arial,sans-serif)!important}
+.wizard-builder .icon-browse{font-size:11px!important}
+.verification-heading,.verification-label{font-size:11px!important}
+#verification-hash{font-size:12px}
+.build-verification p,.verification-help ol,.verification-help p{font-size:12px!important}
+.verification-help summary{font-size:13px}
+.build-explainer-label{font-size:11px!important}
+.build-explainer p{
+  max-width:760px;
+  font-size:13px;
+  line-height:1.8;
+  text-wrap:pretty;
+}
+.feature-row p{font-size:12px;line-height:1.75}
+.share-copy p,.faq-answer p,.faq-item p{font-size:13px}
+.site-footer .footer-inner>span{font-size:10px!important}
+
+/* Avoid clipping decorative artwork at section boundaries. */
+.hero{overflow:visible}
+.hero-visual{overflow:visible}
+.closing-banner{overflow:visible}
+.closing-banner-inner{overflow:hidden}
+.closing-watermark{display:none!important}
+
+/* The progress indicators animate transforms, not layout dimensions. */
+#progress i{
+  width:100%;
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform .35s cubic-bezier(.22,.8,.25,1);
+}
+.wizard-progress-track span{
+  width:100%;
+  transform:scaleX(.5);
+  transform-origin:left center;
+  transition:transform .25s ease;
+}
+
+/* Builder titles now correctly follow the page h1. */
+.wizard-builder .step-copy h2{
+  margin:0 0 6px;
+  color:#263653;
+  font-size:21px;
+  line-height:1.2;
+  letter-spacing:-.6px;
+}
+@media(prefers-color-scheme:dark){
+  .wizard-builder .step-copy h2{color:#e4ebfa}
+  .hero-caption{color:#c0cbe0!important}
+  .exe-window-bar span,.exe-app-meta{color:#b7c5dd!important}
+  .visual-bottom{color:#c0cce2!important}
+  .build-explainer p{color:#c1cce0}
+  .site-footer .footer-inner>span{color:#b5c2d8!important}
+}
+@media(max-width:700px){
+  .hero-caption{font-size:11px!important}
+  .exe-window-bar span{font-size:11px!important}
+  .exe-app-meta{font-size:11px!important}
+  .visual-sticker{font-size:11px!important;padding:7px 8px}
+  .visual-bottom{font-size:11px!important;left:12px;right:12px;gap:7px}
+  .folder-button{font-size:12px!important}
+  .summary-top,.summary-top button{font-size:12px!important}
+  .build-explainer p{max-width:100%;font-size:13px}
+  .site-footer .footer-inner>span{font-size:10px!important}
+  .closing-banner{overflow:hidden}
+  .closing-banner-inner{overflow:visible}
+}
