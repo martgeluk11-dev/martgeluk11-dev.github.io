@@ -550,3 +550,12 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
 .share-option .share-action-icon{width:28px;height:28px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 @media(prefers-color-scheme:dark){.share-option .share-x-icon{filter:invert(1)}}
 
+
+
+/* Remove undersized helper copy; keep essential controls readable */
+.wizard-progress-label{font-size:11px;letter-spacing:.07em}
+.wizard-builder .field>label{font-size:12px;letter-spacing:.07em}
+.wizard-builder .segments button small{font-size:13px;line-height:1.4}
+.wizard-builder .field>small{font-size:13px;line-height:1.6;margin-top:9px}
+.wizard-builder .icon-browse{font-size:11px}
+.wizard-builder .field-index{display:none}
