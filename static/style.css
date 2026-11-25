@@ -634,3 +634,26 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
 .visual-sticker {
   border-color: var(--line, #dfe5ef) !important;
 }
+
+
+/* Standalone placement for the 300x250 advertisement */
+.square-ad-section{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:36px 20px 52px;
+  background:var(--paper,#f8faff);
+}
+.square-ad-section .square-ad{
+  width:300px;
+  max-width:100%;
+  min-height:250px;
+  text-align:center;
+}
+.square-ad-section .square-ad small{
+  display:block;
+  margin-bottom:10px;
+  color:var(--muted,#8793a7);
+  font:500 12px var(--display,Arial,sans-serif);
+  letter-spacing:0;
+}
