@@ -811,3 +811,20 @@ button,input,select{font:inherit}button{color:inherit}a{color:inherit}
   .closing-banner{overflow:hidden}
   .closing-banner-inner{overflow:visible}
 }
+
+
+/* Final fit-and-finish: readable mock-interface labels and shorter measure. */
+.code-card-head{font-size:11px}
+.code-card-foot{font-size:11px}
+.visual-top-label{font-size:11px}
+.build-explainer p{max-width:620px}
+#file-count{font-size:12px!important}
+#clear{font-size:12px!important}
+#entry option{font-size:13px}
+.upload-warning span{display:block;min-width:0;flex:1}
+@media(max-width:700px){
+  .code-card-head{font-size:11px}
+  .code-card-foot{font-size:11px}
+  .visual-top-label{font-size:11px}
+  .closing-banner{overflow:visible}
+}
