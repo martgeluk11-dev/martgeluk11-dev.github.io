@@ -40,6 +40,11 @@ function addFiles(list){
       const parts=item.path.replace(/\\/g,"/").split("/");
       return !parts.some(part=>IGNORED_DIRS.has(part.toLowerCase()))&&![".ds_store","thumbs.db"].includes(parts.at(-1).toLowerCase());
     });
+  // A standalone Python script is a complete valid project. Select Python
+  // automatically so a previously selected language cannot hide its entry file.
+  if(projectFiles.length===0&&incoming.length===1&&/\\.py$/i.test(incoming[0].path)){
+    $("language").value="python";
+  }
   const archives=incoming.filter(item=>item.path.toLowerCase().endsWith(".zip"));
   if(archives.length){
     if(incoming.length!==1){setStatus("Upload one ZIP archive at a time.",true);return;}
