@@ -133,7 +133,6 @@
               <p><button type="button" class="folder-button" id="folder-button">Choose project folder <span>↗</span></button></p>
               <p><button type="button" class="folder-button" id="zip-button">Choose ZIP archive <span>↗</span></button></p>
               <input id="folder" type="file" webkitdirectory multiple hidden>
-              <small>CODE · FILES · ASSETS</small>
             </div>
 
             <div class="file-summary" id="file-summary" hidden>
@@ -143,7 +142,7 @@
 
             <div class="wizard-fields">
               <div class="field">
-                <label for="language"><span class="field-index">01</span> PROJECT LANGUAGE</label>
+                <label for="language">PROJECT LANGUAGE</label>
                 <select id="language">
                   <option value="auto">Auto-detect language</option>
                   <option value="python">Python</option>
@@ -156,12 +155,10 @@
                   <option value="rust">Rust</option>
                   <option value="java">Java</option>
                 </select>
-                <small>Detected automatically. Change it if needed.</small>
               </div>
               <div class="field entry-field">
-                <label for="entry"><span class="field-index">02</span> MAIN FILE / PROJECT MANIFEST</label>
+                <label for="entry">MAIN FILE / PROJECT MANIFEST</label>
                 <select id="entry" disabled><option value="">Add project files first</option></select>
-                <small id="entry-help">Select your main file.</small>
               </div>
             </div>
 
