@@ -131,7 +131,7 @@ function showWizardStep(step){
   const second=step===2;
   $("step-one").hidden=second;
   $("step-two").hidden=!second;
-  $("wizard-progress-fill").style.width=second?"100%":"50%";
+  $("wizard-progress-fill").style.transform=second?"scaleX(1)":"scaleX(.5)";
   $("wizard-step-label").textContent=second?"STEP 2 OF 2":"STEP 1 OF 2";
   $("wizard-step-name").textContent=second?"APP SETTINGS":"PROJECT FILES";
   if(second)$("appname").focus({preventScroll:true});
@@ -164,7 +164,7 @@ let simulatedProgress=0;
 let progressTimer=null;
 function paintProgress(value){
   simulatedProgress=value;
-  const bar=$("progress");bar.querySelector("i").style.width=value+"%";
+  const bar=$("progress");bar.querySelector("i").style.transform="scaleX("+(value/100)+")";
   bar.setAttribute("aria-valuenow",String(Math.round(value)));
 }
 function startProgress(){
