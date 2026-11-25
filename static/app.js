@@ -107,7 +107,13 @@ function renderFiles(){
   $("next-step").disabled=!projectFiles.length||select.disabled||!select.value||projectFiles.length>150;
   $("build").disabled=!projectFiles.length||select.disabled||!select.value||projectFiles.length>150;
 }
-fileInput.addEventListener("change",e=>{addFiles(e.target.files);fileInput.value="";});
+fileInput.addEventListener("change",e=>{
+  const selected=e.target.files;
+  if(selected&&selected.length){
+    try{addFiles(selected);}catch(error){setStatus(error?.message||"Could not read the selected files.",true);}
+  }
+  fileInput.value="";
+});
 folderInput.addEventListener("change",e=>{addFiles(e.target.files);folderInput.value="";});
 zipInput.addEventListener("change",e=>{addFiles(e.target.files);zipInput.value="";});
 function openFilePicker(input){
@@ -117,6 +123,7 @@ function openFilePicker(input){
   }
   input.click();
 }
+$("files-button").addEventListener("click",()=>openFilePicker(fileInput));
 $("folder-button").addEventListener("click",()=>openFilePicker(folderInput));
 $("zip-button").addEventListener("click",()=>openFilePicker(zipInput));
 $("clear").addEventListener("click",()=>{projectFiles=[];renderFiles();});
@@ -124,7 +131,21 @@ $("language").addEventListener("change",renderFiles);
 const drop=$("drop");
 ["dragenter","dragover"].forEach(type=>drop.addEventListener(type,e=>{e.preventDefault();drop.classList.add("over");}));
 ["dragleave","drop"].forEach(type=>drop.addEventListener(type,e=>{e.preventDefault();drop.classList.remove("over");}));
-drop.addEventListener("drop",e=>addFiles(e.dataTransfer.files));
+drop.addEventListener("drop",e=>{
+  const files=e.dataTransfer?.files;
+  if(files?.length){try{addFiles(files);}catch(error){setStatus(error?.message||"Could not read the dropped files.",true);}}
+});
+// Prevent the browser from navigating to a dropped file, and accept file drops
+// over the whole upload panel as well as its central drop area.
+document.addEventListener("dragover",e=>{
+  if(e.dataTransfer?.types?.includes("Files"))e.preventDefault();
+});
+document.addEventListener("drop",e=>{
+  if(!drop.contains(e.target)&&e.dataTransfer?.files?.length){
+    e.preventDefault();
+    try{addFiles(e.dataTransfer.files);}catch(error){setStatus(error?.message||"Could not read the dropped files.",true);}
+  }
+});
 $("formats").addEventListener("click",e=>{
   const button=e.target.closest("button[data-value]");if(!button)return;
   format=button.dataset.value;
