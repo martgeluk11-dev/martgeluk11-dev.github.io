@@ -42,7 +42,7 @@ function addFiles(list){
     });
   // A standalone Python script is a complete valid project. Select Python
   // automatically so a previously selected language cannot hide its entry file.
-  if(projectFiles.length===0&&incoming.length===1&&/\\.py$/i.test(incoming[0].path)){
+  if(projectFiles.length===0&&incoming.length===1&&/\.py$/i.test(incoming[0].path)){
     $("language").value="python";
   }
   const archives=incoming.filter(item=>item.path.toLowerCase().endsWith(".zip"));
